@@ -27,38 +27,38 @@ annotations:
     - name: Upstream Project
       url: https://github.com/prometheus-operator/kube-prometheus
   artifacthub.io/crds: |
-      - kind: AlertmanagerConfig
-        version: v1alpha1
-        name: alertmanagerconfigs.monitoring.coreos.com
-        description: AlertmanagerConfig defines a namespaced AlertmanagerConfig to be aggregated across multiple namespaces configuring one Alertmanager cluster.
-      - kind: Alertmanager
-        version: v1
-        name: alertmanagers.monitoring.coreos.com
-        description: Alertmanager describes an Alertmanager cluster.
-      - kind: PodMonitor
-        version: v1
-        name: podmonitors.monitoring.coreos.com
-        description: PodMonitor defines monitoring for a set of pods.
-      - kind: Probe
-        version: v1
-        name: probes.monitoring.coreos.com
-        description: Probe defines monitoring for a set of static targets or ingresses.
-      - kind: Prometheus
-        version: v1
-        name: prometheuses.monitoring.coreos.com
-        description: Prometheus defines a Prometheus deployment.
-      - kind: PrometheusRule
-        version: v1
-        name: prometheusrules.monitoring.coreos.com
-        description: PrometheusRule defines recording and alerting rules for a Prometheus
-      - kind: ThanosRuler
-        version: v1
-        name: thanosrulers.monitoring.coreos.com
-        description: ThanosRuler defines a ThanosRuler deployment.
-      - kind: ServiceMonitor
-        version: v1
-        name: servicemonitors.monitoring.coreos.com
-        description: ServiceMonitor defines monitoring for a set of services.
+    - kind: AlertmanagerConfig
+      version: v1alpha1
+      name: alertmanagerconfigs.monitoring.coreos.com
+      description: AlertmanagerConfig defines a namespaced AlertmanagerConfig to be aggregated across multiple namespaces configuring one Alertmanager cluster.
+    - kind: Alertmanager
+      version: v1
+      name: alertmanagers.monitoring.coreos.com
+      description: Alertmanager describes an Alertmanager cluster.
+    - kind: PodMonitor
+      version: v1
+      name: podmonitors.monitoring.coreos.com
+      description: PodMonitor defines monitoring for a set of pods.
+    - kind: Probe
+      version: v1
+      name: probes.monitoring.coreos.com
+      description: Probe defines monitoring for a set of static targets or ingresses.
+    - kind: Prometheus
+      version: v1
+      name: prometheuses.monitoring.coreos.com
+      description: Prometheus defines a Prometheus deployment.
+    - kind: PrometheusRule
+      version: v1
+      name: prometheusrules.monitoring.coreos.com
+      description: PrometheusRule defines recording and alerting rules for a Prometheus
+    - kind: ThanosRuler
+      version: v1
+      name: thanosrulers.monitoring.coreos.com
+      description: ThanosRuler defines a ThanosRuler deployment.
+    - kind: ServiceMonitor
+      version: v1
+      name: servicemonitors.monitoring.coreos.com
+      description: ServiceMonitor defines monitoring for a set of services.
   artifacthub.io/recommendations: |
     - url: https://artifacthub.io/packages/helm/artifact-hub/artifact-hub
     - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
