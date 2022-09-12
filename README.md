@@ -19,8 +19,8 @@ You can then run `helm search repo arldka` to see the charts.
 ## License
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
-[Apache 2.0 License](https://github.com/prometheus-community/helm-charts/blob/main/LICENSE).
+[Apache 2.0 License](https://github.com/arldka/helm-charts/blob/main/LICENSE).
 
 ## Helm charts build status
 
-![Release Charts](https://github.com/prometheus-community/helm-charts/workflows/Release%20Charts/badge.svg?branch=main)
+![Release Charts](https://github.com/arldka/helm-charts/workflows/Release%20Charts/badge.svg?branch=main)
