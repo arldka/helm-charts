@@ -5,7 +5,7 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 0.1.1
+version: 0.1.0
 
 appVersion: "0.58.0"
 
@@ -20,7 +20,7 @@ annotations:
   artifacthub.io/operatorCapabilities: Deep Insights
   artifacthub.io/prerelease: "false"
   artifacthub.io/links: |
-    - name: Chart source: 
+    - name: Chart source
       url: https://github.com/arldka/helm-charts       
     - name: kube-prometheus-stack source
       url: https://github.com/prometheus-community/helm-charts
