@@ -68,6 +68,70 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: fixed
+          description: Removed the remaining if .Values.enanbled
+      artifacthub.io/crds: |
+        - kind: AlertmanagerConfig
+          version: v1alpha1
+          name: alertmanagerconfigs.monitoring.coreos.com
+          description: AlertmanagerConfig defines a namespaced AlertmanagerConfig to be aggregated across multiple namespaces configuring one Alertmanager cluster.
+        - kind: Alertmanager
+          version: v1
+          name: alertmanagers.monitoring.coreos.com
+          description: Alertmanager describes an Alertmanager cluster.
+        - kind: PodMonitor
+          version: v1
+          name: podmonitors.monitoring.coreos.com
+          description: PodMonitor defines monitoring for a set of pods.
+        - kind: Probe
+          version: v1
+          name: probes.monitoring.coreos.com
+          description: Probe defines monitoring for a set of static targets or ingresses.
+        - kind: Prometheus
+          version: v1
+          name: prometheuses.monitoring.coreos.com
+          description: Prometheus defines a Prometheus deployment.
+        - kind: PrometheusRule
+          version: v1
+          name: prometheusrules.monitoring.coreos.com
+          description: PrometheusRule defines recording and alerting rules for a Prometheus
+        - kind: ThanosRuler
+          version: v1
+          name: thanosrulers.monitoring.coreos.com
+          description: ThanosRuler defines a ThanosRuler deployment.
+        - kind: ServiceMonitor
+          version: v1
+          name: servicemonitors.monitoring.coreos.com
+          description: ServiceMonitor defines monitoring for a set of services.
+      artifacthub.io/links: "- name: Chart source\n  url: https://github.com/arldka/helm-charts
+        \      \n- name: kube-prometheus-stack source\n  url: https://github.com/prometheus-community/helm-charts\n-
+        name: Upstream Project\n  url: https://github.com/prometheus-operator/kube-prometheus\n"
+      artifacthub.io/operator: "true"
+      artifacthub.io/operatorCapabilities: Deep Insights
+      artifacthub.io/prerelease: "false"
+      artifacthub.io/recommendations: |
+        - url: https://artifacthub.io/packages/helm/artifact-hub/artifact-hub
+        - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
+    apiVersion: v2
+    appVersion: 0.58.0
+    created: "2022-09-13T12:33:43.196280537Z"
+    description: Stripped down version of prometheus-operator to only provision the
+      operator and nothing else based on the kube-prometheus-stack chart.
+    digest: c22a9918d37bfbfb3bf82362c5b50b0eb45751c88e0068ce0844dcf52c139730
+    home: https://github.com/arldka/helm-charts
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    keywords:
+    - operator
+    - prometheus
+    - prometheus-operator
+    kubeVersion: '>=1.16.0-0'
+    name: prometheus-operator
+    type: application
+    urls:
+    - https://github.com/arldka/helm-charts/releases/download/prometheus-operator-0.1.2/prometheus-operator-0.1.2.tgz
+    version: 0.1.2
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: fixed
           description: Helm template failed when validated admission-webhooks
           links:
             - name: Github PR
@@ -193,4 +257,4 @@ entries:
     urls:
     - https://github.com/arldka/helm-charts/releases/download/prometheus-operator-0.1.0/prometheus-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2022-09-13T12:31:38.248108145Z"
+generated: "2022-09-13T12:33:43.196302837Z"
