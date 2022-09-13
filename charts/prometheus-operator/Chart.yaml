@@ -19,6 +19,12 @@ annotations:
   artifacthub.io/operator: "true"
   artifacthub.io/operatorCapabilities: Deep Insights
   artifacthub.io/prerelease: "false"
+  artifacthub.io/changes: |
+    - kind: fixed
+      description: Helm template failed when validated admission-webhooks
+      links:
+        - name: Github PR
+          url: https://github.com/arldka/helm-charts/pull/1
   artifacthub.io/links: |
     - name: Chart source: 
       url: https://github.com/arldka/helm-charts       
