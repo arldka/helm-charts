@@ -1,4 +1,4 @@
-{{- if and .Values.enabled .Values.admissionWebhooks.enabled .Values.admissionWebhooks.patch.enabled .Values.global.rbac.create .Values.global.rbac.pspEnabled (not .Values.admissionWebhooks.certManager.enabled) }}
+{{- if and  .Values.admissionWebhooks.enabled .Values.admissionWebhooks.patch.enabled .Values.global.rbac.create .Values.global.rbac.pspEnabled (not .Values.admissionWebhooks.certManager.enabled) }}
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:

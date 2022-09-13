@@ -1,6 +1,6 @@
 # Prometheus Operator Chart
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.58.0](https://img.shields.io/badge/AppVersion-0.58.0-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.58.0](https://img.shields.io/badge/AppVersion-0.58.0-informational?style=flat-square)
 
 ## Description
 
@@ -87,7 +87,7 @@ When Google configure the control plane for private clusters, they automatically
 
 You can read more information on how to add firewall rules for the GKE control plane nodes in the [GKE docs](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#add_firewall_rules)
 
-Alternatively, you can disable the hooks by setting `prometheusOperator.admissionWebhooks.enabled=false`.
+Alternatively, you can disable the hooks by setting `admissionWebhooks.enabled=false`.
 
 ## PrometheusRules Admission Webhooks
 
@@ -106,7 +106,7 @@ A validating and mutating webhook configuration requires the endpoint to which t
 
 It should be possible to use [jetstack/cert-manager](https://github.com/jetstack/cert-manager) if a more complete solution is required, but it has not been tested.
 
-You can enable automatic self-signed TLS certificate provisioning via cert-manager by setting the `prometheusOperator.admissionWebhooks.certManager.enabled` value to true.
+You can enable automatic self-signed TLS certificate provisioning via cert-manager by setting the `admissionWebhooks.certManager.enabled` value to true.
 
 ### Limitations
 
@@ -209,116 +209,4 @@ Because the operator can only run as a single pod, there is potential for this c
 | tls.enabled | bool | `true` |  |
 | tls.internalPort | int | `10250` |  |
 | tls.tlsMinVersion | string | `"VersionTLS13"` |  |
-| tolerations | list | `[]` |  |# prometheus-operator
-
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.58.0](https://img.shields.io/badge/AppVersion-0.58.0-informational?style=flat-square)
-
-Stripped down version of prometheus-operator to only provision the operator and nothing else based on the kube-prometheus-stack chart.
-
-**Homepage:** <https://github.com/arldka/helm-charts>
-
-## Requirements
-
-Kubernetes: `>=1.16.0-0`
-
-## Values
-
-| Key | Type | Default | Description |
-|-----|------|---------|-------------|
-| admissionWebhooks.caBundle | string | `""` |  |
-| admissionWebhooks.certManager.admissionCert.duration | string | `""` |  |
-| admissionWebhooks.certManager.enabled | bool | `false` |  |
-| admissionWebhooks.certManager.rootCert.duration | string | `""` |  |
-| admissionWebhooks.createSecretJob.securityContext | object | `{}` |  |
-| admissionWebhooks.enabled | bool | `true` |  |
-| admissionWebhooks.failurePolicy | string | `"Fail"` |  |
-| admissionWebhooks.patch.affinity | object | `{}` |  |
-| admissionWebhooks.patch.enabled | bool | `true` |  |
-| admissionWebhooks.patch.image.pullPolicy | string | `"IfNotPresent"` |  |
-| admissionWebhooks.patch.image.repository | string | `"k8s.gcr.io/ingress-nginx/kube-webhook-certgen"` |  |
-| admissionWebhooks.patch.image.sha | string | `""` |  |
-| admissionWebhooks.patch.image.tag | string | `"v1.2.0"` |  |
-| admissionWebhooks.patch.nodeSelector | object | `{}` |  |
-| admissionWebhooks.patch.podAnnotations | object | `{}` |  |
-| admissionWebhooks.patch.priorityClassName | string | `""` |  |
-| admissionWebhooks.patch.resources | object | `{}` |  |
-| admissionWebhooks.patch.securityContext.runAsGroup | int | `2000` |  |
-| admissionWebhooks.patch.securityContext.runAsNonRoot | bool | `true` |  |
-| admissionWebhooks.patch.securityContext.runAsUser | int | `2000` |  |
-| admissionWebhooks.patch.tolerations | list | `[]` |  |
-| admissionWebhooks.patchWebhookJob.securityContext | object | `{}` |  |
-| admissionWebhooks.timeoutSeconds | int | `10` |  |
-| affinity | object | `{}` |  |
-| alertmanagerConfigNamespaces | list | `[]` |  |
-| alertmanagerInstanceNamespaces | list | `[]` |  |
-| annotations | object | `{}` |  |
-| commonLabels | object | `{}` |  |
-| containerSecurityContext.allowPrivilegeEscalation | bool | `false` |  |
-| containerSecurityContext.readOnlyRootFilesystem | bool | `true` |  |
-| denyNamespaces | list | `[]` |  |
-| dnsConfig | object | `{}` |  |
-| fullnameOverride | string | `""` |  |
-| global.imagePullSecrets | list | `[]` |  |
-| global.rbac.create | bool | `true` |  |
-| global.rbac.createAggregateClusterRoles | bool | `false` |  |
-| global.rbac.pspAnnotations | object | `{}` |  |
-| global.rbac.pspEnabled | bool | `false` |  |
-| hostNetwork | bool | `false` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"quay.io/prometheus-operator/prometheus-operator"` |  |
-| image.sha | string | `""` |  |
-| image.tag | string | `"v0.58.0"` |  |
-| kubeTargetVersionOverride | string | `""` |  |
-| kubeVersionOverride | string | `""` |  |
-| kubeletService.enabled | bool | `true` |  |
-| kubeletService.name | string | `""` |  |
-| kubeletService.namespace | string | `"kube-system"` |  |
-| nameOverride | string | `""` |  |
-| namespaceOverride | string | `""` |  |
-| namespaces | object | `{}` |  |
-| nodeSelector | object | `{}` |  |
-| podAnnotations | object | `{}` |  |
-| podLabels | object | `{}` |  |
-| prometheusConfigReloader.image.repository | string | `"quay.io/prometheus-operator/prometheus-config-reloader"` |  |
-| prometheusConfigReloader.image.sha | string | `""` |  |
-| prometheusConfigReloader.image.tag | string | `"v0.58.0"` |  |
-| prometheusConfigReloader.resources.limits.cpu | string | `"200m"` |  |
-| prometheusConfigReloader.resources.limits.memory | string | `"50Mi"` |  |
-| prometheusConfigReloader.resources.requests.cpu | string | `"200m"` |  |
-| prometheusConfigReloader.resources.requests.memory | string | `"50Mi"` |  |
-| prometheusInstanceNamespaces | list | `[]` |  |
-| resources | object | `{}` |  |
-| secretFieldSelector | string | `""` |  |
-| securityContext.fsGroup | int | `65534` |  |
-| securityContext.runAsGroup | int | `65534` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
-| securityContext.runAsUser | int | `65534` |  |
-| service.additionalPorts | list | `[]` |  |
-| service.annotations | object | `{}` |  |
-| service.clusterIP | string | `""` |  |
-| service.externalIPs | list | `[]` |  |
-| service.externalTrafficPolicy | string | `"Cluster"` |  |
-| service.labels | object | `{}` |  |
-| service.loadBalancerIP | string | `""` |  |
-| service.loadBalancerSourceRanges | list | `[]` |  |
-| service.nodePort | int | `30080` |  |
-| service.nodePortTls | int | `30443` |  |
-| service.type | string | `"ClusterIP"` |  |
-| serviceAccount.create | bool | `true` |  |
-| serviceAccount.name | string | `""` |  |
-| serviceMonitor.interval | string | `""` |  |
-| serviceMonitor.metricRelabelings | list | `[]` |  |
-| serviceMonitor.relabelings | list | `[]` |  |
-| serviceMonitor.scrapeTimeout | string | `""` |  |
-| serviceMonitor.selfMonitor | bool | `true` |  |
-| thanosImage.repository | string | `"quay.io/thanos/thanos"` |  |
-| thanosImage.sha | string | `""` |  |
-| thanosImage.tag | string | `"v0.27.0"` |  |
-| thanosRulerInstanceNamespaces | list | `[]` |  |
-| tls.enabled | bool | `true` |  |
-| tls.internalPort | int | `10250` |  |
-| tls.tlsMinVersion | string | `"VersionTLS13"` |  |
 | tolerations | list | `[]` |  |
-
-----------------------------------------------
-Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
