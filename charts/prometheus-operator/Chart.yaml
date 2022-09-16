@@ -22,6 +22,14 @@ annotations:
   artifacthub.io/changes: |
     - kind: changed
       description: Updates the Chart's crds and values for prometheus-operator 0.59.1
+      links:
+        - name: Github PR
+          url: https://github.com/arldka/helm-charts/pull/3
+    - kind: added
+      description: Added ArgoCD SyncOption annotations to use kubectl replace for crds
+      links:
+        - name: Github PR
+          url: https://github.com/arldka/helm-charts/pull/3
   artifacthub.io/links: |
     - name: Chart source
       url: https://github.com/arldka/helm-charts       

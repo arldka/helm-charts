@@ -73,7 +73,7 @@ A major chart version change (like v1.2.3 -> v2.0.0) indicates that there is an 
 
 This version upgrades Prometheus-Operator to v0.59.1.
 
-Run these commands to update the CRDs before applying the upgrade.
+Run these commands to update the CRDs before applying the upgrade if you are not using ArgoCD to deploy the operator.
 
 ```console
 kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.59.1/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
@@ -145,7 +145,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | admissionWebhooks.patch.image.pullPolicy | string | `"IfNotPresent"` |  |
 | admissionWebhooks.patch.image.repository | string | `"k8s.gcr.io/ingress-nginx/kube-webhook-certgen"` |  |
 | admissionWebhooks.patch.image.sha | string | `""` |  |
-| admissionWebhooks.patch.image.tag | string | `"v1.2.0"` |  |
+| admissionWebhooks.patch.image.tag | string | `"v1.3.0"` |  |
 | admissionWebhooks.patch.nodeSelector | object | `{}` |  |
 | admissionWebhooks.patch.podAnnotations | object | `{}` |  |
 | admissionWebhooks.patch.priorityClassName | string | `""` |  |
@@ -175,7 +175,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"quay.io/prometheus-operator/prometheus-operator"` |  |
 | image.sha | string | `""` |  |
-| image.tag | string | `"v0.58.0"` |  |
+| image.tag | string | `"v0.59.1"` |  |
 | kubeTargetVersionOverride | string | `""` |  |
 | kubeVersionOverride | string | `""` |  |
 | kubeletService.enabled | bool | `true` |  |
@@ -189,7 +189,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | podLabels | object | `{}` |  |
 | prometheusConfigReloader.image.repository | string | `"quay.io/prometheus-operator/prometheus-config-reloader"` |  |
 | prometheusConfigReloader.image.sha | string | `""` |  |
-| prometheusConfigReloader.image.tag | string | `"v0.58.0"` |  |
+| prometheusConfigReloader.image.tag | string | `"v0.59.1"` |  |
 | prometheusConfigReloader.resources.limits.cpu | string | `"200m"` |  |
 | prometheusConfigReloader.resources.limits.memory | string | `"50Mi"` |  |
 | prometheusConfigReloader.resources.requests.cpu | string | `"200m"` |  |
@@ -221,7 +221,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | serviceMonitor.selfMonitor | bool | `true` |  |
 | thanosImage.repository | string | `"quay.io/thanos/thanos"` |  |
 | thanosImage.sha | string | `""` |  |
-| thanosImage.tag | string | `"v0.27.0"` |  |
+| thanosImage.tag | string | `"v0.28.0"` |  |
 | thanosRulerInstanceNamespaces | list | `[]` |  |
 | tls.enabled | bool | `true` |  |
 | tls.internalPort | int | `10250` |  |
@@ -254,7 +254,7 @@ Kubernetes: `>=1.16.0-0`
 | admissionWebhooks.patch.image.pullPolicy | string | `"IfNotPresent"` |  |
 | admissionWebhooks.patch.image.repository | string | `"k8s.gcr.io/ingress-nginx/kube-webhook-certgen"` |  |
 | admissionWebhooks.patch.image.sha | string | `""` |  |
-| admissionWebhooks.patch.image.tag | string | `"v1.2.0"` |  |
+| admissionWebhooks.patch.image.tag | string | `"v1.3.0"` |  |
 | admissionWebhooks.patch.nodeSelector | object | `{}` |  |
 | admissionWebhooks.patch.podAnnotations | object | `{}` |  |
 | admissionWebhooks.patch.priorityClassName | string | `""` |  |
@@ -284,7 +284,7 @@ Kubernetes: `>=1.16.0-0`
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"quay.io/prometheus-operator/prometheus-operator"` |  |
 | image.sha | string | `""` |  |
-| image.tag | string | `"v0.58.0"` |  |
+| image.tag | string | `"v0.59.1"` |  |
 | kubeTargetVersionOverride | string | `""` |  |
 | kubeVersionOverride | string | `""` |  |
 | kubeletService.enabled | bool | `true` |  |
@@ -298,7 +298,7 @@ Kubernetes: `>=1.16.0-0`
 | podLabels | object | `{}` |  |
 | prometheusConfigReloader.image.repository | string | `"quay.io/prometheus-operator/prometheus-config-reloader"` |  |
 | prometheusConfigReloader.image.sha | string | `""` |  |
-| prometheusConfigReloader.image.tag | string | `"v0.58.0"` |  |
+| prometheusConfigReloader.image.tag | string | `"v0.59.1"` |  |
 | prometheusConfigReloader.resources.limits.cpu | string | `"200m"` |  |
 | prometheusConfigReloader.resources.limits.memory | string | `"50Mi"` |  |
 | prometheusConfigReloader.resources.requests.cpu | string | `"200m"` |  |
@@ -330,7 +330,7 @@ Kubernetes: `>=1.16.0-0`
 | serviceMonitor.selfMonitor | bool | `true` |  |
 | thanosImage.repository | string | `"quay.io/thanos/thanos"` |  |
 | thanosImage.sha | string | `""` |  |
-| thanosImage.tag | string | `"v0.27.0"` |  |
+| thanosImage.tag | string | `"v0.28.0"` |  |
 | thanosRulerInstanceNamespaces | list | `[]` |  |
 | tls.enabled | bool | `true` |  |
 | tls.internalPort | int | `10250` |  |
