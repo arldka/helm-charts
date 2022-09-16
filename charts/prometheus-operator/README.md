@@ -1,6 +1,6 @@
 # Prometheus Operator Chart
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.58.0](https://img.shields.io/badge/AppVersion-0.58.0-informational?style=flat-square)
+![Version: 1.0.0-rc1](https://img.shields.io/badge/Version-1.0.0--rc1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.59.1](https://img.shields.io/badge/AppVersion-0.59.1-informational?style=flat-square)
 
 ## Description
 
@@ -68,6 +68,23 @@ _See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command documen
 ### Upgrading an existing Release to a new major version
 
 A major chart version change (like v1.2.3 -> v2.0.0) indicates that there is an incompatible breaking change needing manual actions.
+
+### From 0.x to 1.x
+
+This version upgrades Prometheus-Operator to v0.59.1.
+
+Run these commands to update the CRDs before applying the upgrade.
+
+```console
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.59.1/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.59.1/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.59.1/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.59.1/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.59.1/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.59.1/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.59.1/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.59.1/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
+```
 
 ## Configuration
 
@@ -209,4 +226,116 @@ Because the operator can only run as a single pod, there is potential for this c
 | tls.enabled | bool | `true` |  |
 | tls.internalPort | int | `10250` |  |
 | tls.tlsMinVersion | string | `"VersionTLS13"` |  |
+| tolerations | list | `[]` |  |# prometheus-operator
+
+![Version: 1.0.0-rc1](https://img.shields.io/badge/Version-1.0.0--rc1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.59.1](https://img.shields.io/badge/AppVersion-0.59.1-informational?style=flat-square)
+
+Stripped down version of prometheus-operator to only provision the operator and nothing else based on the kube-prometheus-stack chart.
+
+**Homepage:** <https://github.com/arldka/helm-charts>
+
+## Requirements
+
+Kubernetes: `>=1.16.0-0`
+
+## Values
+
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| admissionWebhooks.caBundle | string | `""` |  |
+| admissionWebhooks.certManager.admissionCert.duration | string | `""` |  |
+| admissionWebhooks.certManager.enabled | bool | `false` |  |
+| admissionWebhooks.certManager.rootCert.duration | string | `""` |  |
+| admissionWebhooks.createSecretJob.securityContext | object | `{}` |  |
+| admissionWebhooks.enabled | bool | `true` |  |
+| admissionWebhooks.failurePolicy | string | `"Fail"` |  |
+| admissionWebhooks.patch.affinity | object | `{}` |  |
+| admissionWebhooks.patch.enabled | bool | `true` |  |
+| admissionWebhooks.patch.image.pullPolicy | string | `"IfNotPresent"` |  |
+| admissionWebhooks.patch.image.repository | string | `"k8s.gcr.io/ingress-nginx/kube-webhook-certgen"` |  |
+| admissionWebhooks.patch.image.sha | string | `""` |  |
+| admissionWebhooks.patch.image.tag | string | `"v1.2.0"` |  |
+| admissionWebhooks.patch.nodeSelector | object | `{}` |  |
+| admissionWebhooks.patch.podAnnotations | object | `{}` |  |
+| admissionWebhooks.patch.priorityClassName | string | `""` |  |
+| admissionWebhooks.patch.resources | object | `{}` |  |
+| admissionWebhooks.patch.securityContext.runAsGroup | int | `2000` |  |
+| admissionWebhooks.patch.securityContext.runAsNonRoot | bool | `true` |  |
+| admissionWebhooks.patch.securityContext.runAsUser | int | `2000` |  |
+| admissionWebhooks.patch.tolerations | list | `[]` |  |
+| admissionWebhooks.patchWebhookJob.securityContext | object | `{}` |  |
+| admissionWebhooks.timeoutSeconds | int | `10` |  |
+| affinity | object | `{}` |  |
+| alertmanagerConfigNamespaces | list | `[]` |  |
+| alertmanagerInstanceNamespaces | list | `[]` |  |
+| annotations | object | `{}` |  |
+| commonLabels | object | `{}` |  |
+| containerSecurityContext.allowPrivilegeEscalation | bool | `false` |  |
+| containerSecurityContext.readOnlyRootFilesystem | bool | `true` |  |
+| denyNamespaces | list | `[]` |  |
+| dnsConfig | object | `{}` |  |
+| fullnameOverride | string | `""` |  |
+| global.imagePullSecrets | list | `[]` |  |
+| global.rbac.create | bool | `true` |  |
+| global.rbac.createAggregateClusterRoles | bool | `false` |  |
+| global.rbac.pspAnnotations | object | `{}` |  |
+| global.rbac.pspEnabled | bool | `false` |  |
+| hostNetwork | bool | `false` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"quay.io/prometheus-operator/prometheus-operator"` |  |
+| image.sha | string | `""` |  |
+| image.tag | string | `"v0.58.0"` |  |
+| kubeTargetVersionOverride | string | `""` |  |
+| kubeVersionOverride | string | `""` |  |
+| kubeletService.enabled | bool | `true` |  |
+| kubeletService.name | string | `""` |  |
+| kubeletService.namespace | string | `"kube-system"` |  |
+| nameOverride | string | `""` |  |
+| namespaceOverride | string | `""` |  |
+| namespaces | object | `{}` |  |
+| nodeSelector | object | `{}` |  |
+| podAnnotations | object | `{}` |  |
+| podLabels | object | `{}` |  |
+| prometheusConfigReloader.image.repository | string | `"quay.io/prometheus-operator/prometheus-config-reloader"` |  |
+| prometheusConfigReloader.image.sha | string | `""` |  |
+| prometheusConfigReloader.image.tag | string | `"v0.58.0"` |  |
+| prometheusConfigReloader.resources.limits.cpu | string | `"200m"` |  |
+| prometheusConfigReloader.resources.limits.memory | string | `"50Mi"` |  |
+| prometheusConfigReloader.resources.requests.cpu | string | `"200m"` |  |
+| prometheusConfigReloader.resources.requests.memory | string | `"50Mi"` |  |
+| prometheusInstanceNamespaces | list | `[]` |  |
+| resources | object | `{}` |  |
+| secretFieldSelector | string | `""` |  |
+| securityContext.fsGroup | int | `65534` |  |
+| securityContext.runAsGroup | int | `65534` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
+| securityContext.runAsUser | int | `65534` |  |
+| service.additionalPorts | list | `[]` |  |
+| service.annotations | object | `{}` |  |
+| service.clusterIP | string | `""` |  |
+| service.externalIPs | list | `[]` |  |
+| service.externalTrafficPolicy | string | `"Cluster"` |  |
+| service.labels | object | `{}` |  |
+| service.loadBalancerIP | string | `""` |  |
+| service.loadBalancerSourceRanges | list | `[]` |  |
+| service.nodePort | int | `30080` |  |
+| service.nodePortTls | int | `30443` |  |
+| service.type | string | `"ClusterIP"` |  |
+| serviceAccount.create | bool | `true` |  |
+| serviceAccount.name | string | `""` |  |
+| serviceMonitor.interval | string | `""` |  |
+| serviceMonitor.metricRelabelings | list | `[]` |  |
+| serviceMonitor.relabelings | list | `[]` |  |
+| serviceMonitor.scrapeTimeout | string | `""` |  |
+| serviceMonitor.selfMonitor | bool | `true` |  |
+| thanosImage.repository | string | `"quay.io/thanos/thanos"` |  |
+| thanosImage.sha | string | `""` |  |
+| thanosImage.tag | string | `"v0.27.0"` |  |
+| thanosRulerInstanceNamespaces | list | `[]` |  |
+| tls.enabled | bool | `true` |  |
+| tls.internalPort | int | `10250` |  |
+| tls.tlsMinVersion | string | `"VersionTLS13"` |  |
 | tolerations | list | `[]` |  |
+
+----------------------------------------------
+Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
