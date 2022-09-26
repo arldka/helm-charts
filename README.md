@@ -1,6 +1,6 @@
 # Helm Charts
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![Release Charts](https://github.com/arldka/helm-charts/workflows/Release%20Charts/badge.svg?branch=main) [![Releases downloads](https://img.shields.io/github/downloads/arldka/helm-charts/total.svg)](https://github.com/arldka/helm-charts/releases)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/arldka)](https://artifacthub.io/packages/search?repo=arldka)[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![Release Charts](https://github.com/arldka/helm-charts/workflows/Release%20Charts/badge.svg?branch=main) [![Releases downloads](https://img.shields.io/github/downloads/arldka/helm-charts/total.svg)](https://github.com/arldka/helm-charts/releases)
 
 
 ## Usage
