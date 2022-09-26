@@ -160,6 +160,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | alertmanagerConfigNamespaces | list | `[]` |  |
 | alertmanagerInstanceNamespaces | list | `[]` |  |
 | annotations | object | `{}` |  |
+| argocdInstall | bool | `false` |  |
 | commonLabels | object | `{}` |  |
 | containerSecurityContext.allowPrivilegeEscalation | bool | `false` |  |
 | containerSecurityContext.readOnlyRootFilesystem | bool | `true` |  |
@@ -269,6 +270,7 @@ Kubernetes: `>=1.16.0-0`
 | alertmanagerConfigNamespaces | list | `[]` |  |
 | alertmanagerInstanceNamespaces | list | `[]` |  |
 | annotations | object | `{}` |  |
+| argocdInstall | bool | `false` |  |
 | commonLabels | object | `{}` |  |
 | containerSecurityContext.allowPrivilegeEscalation | bool | `false` |  |
 | containerSecurityContext.readOnlyRootFilesystem | bool | `true` |  |

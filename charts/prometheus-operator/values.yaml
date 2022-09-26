@@ -28,6 +28,10 @@ commonLabels: {}
 # scmhash: abc123
 # myLabel: aakkmd
 
+## If you are installing the chart using Argo CD, you may set the value to true to add the synx policy replace to the CRDs
+##
+argocdInstall: false
+
 global:
   rbac:
     create: true
