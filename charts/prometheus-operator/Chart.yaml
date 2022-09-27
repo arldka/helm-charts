@@ -5,9 +5,9 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 1.0.0
+version: 1.0.1
 
-appVersion: 0.59.1
+appVersion: 0.59.2
 
 kubeVersion: ">=1.16.0-0"
 home: https://github.com/arldka/helm-charts
@@ -19,21 +19,16 @@ annotations:
   artifacthub.io/operator: "true"
   artifacthub.io/operatorCapabilities: Deep Insights
   artifacthub.io/changes: |
+    - kind: removed
+      description: Removes the Servimonitor for operator selfmonitoring
+      links:
+        - name: Github PR
+          url: https://github.com/arldka/helm-charts/pull/5
     - kind: changed
-      description: Updates the Chart's crds and values for prometheus-operator 0.59.1
+      description: Bumps prometheus-operator version to 0.59.2
       links:
         - name: Github PR
-          url: https://github.com/arldka/helm-charts/pull/3
-    - kind: added
-      description: Added ArgoCD SyncOption annotations to use kubectl replace for crds
-      links:
-        - name: Github PR
-          url: https://github.com/arldka/helm-charts/pull/4
-    - kind: changed
-      description: CRDs are now declared in the templates folder
-      links:
-        - name: Github PR
-          url: https://github.com/arldka/helm-charts/pull/4
+          url: https://github.com/arldka/helm-charts/pull/5
   artifacthub.io/links: |
     - name: Chart source
       url: https://github.com/arldka/helm-charts       
