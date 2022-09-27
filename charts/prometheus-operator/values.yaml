@@ -228,33 +228,6 @@ kubeletService:
   # Use '{{ template "prometheus-operator.fullname" . }}-kubelet' by default
   name: ""
 
-## Create a servicemonitor for the operator
-##
-serviceMonitor:
-  ## Scrape interval. If not set, the Prometheus default scrape interval is used.
-  ##
-  interval: ""
-  ## Scrape timeout. If not set, the Prometheus default scrape timeout is used.
-  scrapeTimeout: ""
-  selfMonitor: true
-
-  ## Metric relabel configs to apply to samples before ingestion.
-  ##
-  metricRelabelings: []
-  # - action: keep
-  #   regex: 'kube_(daemonset|deployment|pod|namespace|node|statefulset).+'
-  #   sourceLabels: [__name__]
-
-  #   relabel configs to apply to samples before ingestion.
-  ##
-  relabelings: []
-  # - sourceLabels: [__meta_kubernetes_pod_node_name]
-  #   separator: ;
-  #   regex: ^(.*)$
-  #   targetLabel: nodename
-  #   replacement: $1
-  #   action: replace
-
 ## Resource limits & requests
 ##
 resources: {}
