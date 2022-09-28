@@ -1,0 +1,15 @@
+nodeSelector:
+  sarenza.com/lifecycle: persistent
+
+kubeletService:
+  enabled: false
+
+## Resource limits & requests
+##
+resources:
+  limits:
+    cpu: 200m
+    memory: 400Mi
+  requests:
+    cpu: 100m
+    memory: 200Mi
