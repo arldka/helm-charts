@@ -4,7 +4,7 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: fixed
-          description: Fixed error converting YAML to JSON: yaml: line 5: mapping values are not allowed in this context
+          description: Fixed error converting YAML to JSON yaml line 5 mapping values are not allowed in this context
           links:
             - name: Github PR
               url: https://github.com/arldka/helm-charts/pull/6
