@@ -21,7 +21,7 @@ annotations:
   artifacthub.io/prerelease: "true"
   artifacthub.io/changes: |
     - kind: changed
-      description: Bumped prometheus-operator version to 0.60.0
+      description: Bumped prometheus-operator version to 0.60.0 and adds changelog to ci
   artifacthub.io/links: |
     - name: Chart source
       url: https://github.com/arldka/helm-charts       
