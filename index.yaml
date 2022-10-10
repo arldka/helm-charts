@@ -4,6 +4,166 @@ entries:
   - annotations:
       artifacthub.io/changes: |
         - kind: changed
+          description: Bumped prometheus-operator version to 0.60.0 and adds changelog to ci
+      artifacthub.io/crds: |
+        - kind: AlertmanagerConfig
+          version: monitoring.coreos.com/v1alpha1
+          name: alertmanagerconfigs.monitoring.coreos.com
+          description: AlertmanagerConfig defines a namespaced AlertmanagerConfig to be aggregated across multiple namespaces configuring one Alertmanager cluster.
+        - kind: Alertmanager
+          version: monitoring.coreos.com/v1
+          name: alertmanagers.monitoring.coreos.com
+          description: Alertmanager describes an Alertmanager cluster.
+        - kind: PodMonitor
+          version: monitoring.coreos.com/v1
+          name: podmonitors.monitoring.coreos.com
+          description: PodMonitor defines monitoring for a set of pods.
+        - kind: Probe
+          version: monitoring.coreos.com/v1
+          name: probes.monitoring.coreos.com
+          description: Probe defines monitoring for a set of static targets or ingresses.
+        - kind: Prometheus
+          version: monitoring.coreos.com/v1
+          name: prometheuses.monitoring.coreos.com
+          description: Prometheus defines a Prometheus deployment.
+        - kind: PrometheusRule
+          version: monitoring.coreos.com/v1
+          name: prometheusrules.monitoring.coreos.com
+          description: PrometheusRule defines recording and alerting rules for a Prometheus
+        - kind: ThanosRuler
+          version: monitoring.coreos.com/v1
+          name: thanosrulers.monitoring.coreos.com
+          description: ThanosRuler defines a ThanosRuler deployment.
+        - kind: ServiceMonitor
+          version: monitoring.coreos.com/v1
+          name: servicemonitors.monitoring.coreos.com
+          description: ServiceMonitor defines monitoring for a set of services.
+      artifacthub.io/crdsExamples: |
+        - apiVersion: monitoring.coreos.com/v1
+          kind: ServiceMonitor
+          metadata:
+            name: example-app
+            labels:
+              team: frontend
+          spec:
+            selector:
+              matchLabels:
+                app: example-app
+            endpoints:
+            - port: web
+        - apiVersion: monitoring.coreos.com/v1
+          kind: Prometheus
+          metadata:
+            name: prometheus
+          spec:
+            serviceAccountName: prometheus
+            serviceMonitorSelector:
+              matchLabels:
+                team: frontend
+            resources:
+              requests:
+                memory: 400Mi
+            enableAdminAPI: false
+        - apiVersion: monitoring.coreos.com/v1
+          kind: Alertmanager
+          metadata:
+            name: main
+          spec:
+            replicas: 3
+            resources:
+              requests:
+                memory: 400Mi
+        - apiVersion: monitoring.coreos.com/v1alpha1
+          kind: AlertmanagerConfig
+          metadata:
+            name: config-example
+            labels:
+              alertmanagerConfig: example
+          spec:
+            route:
+              groupBy: ['job']
+              groupWait: 30s
+              groupInterval: 5m
+              repeatInterval: 12h
+              receiver: 'wechat-example'
+            receivers:
+            - name: 'wechat-example'
+              wechatConfigs:
+              - apiURL: 'http://wechatserver:8080/'
+                corpID: 'wechat-corpid'
+                apiSecret:
+                  name: 'wechat-config'
+                  key: 'apiSecret'
+        - apiVersion: monitoring.coreos.com/v1
+          kind: PrometheusRule
+          metadata:
+            creationTimestamp: null
+            labels:
+              prometheus: example
+              role: alert-rules
+            name: prometheus-example-rules
+          spec:
+            groups:
+            - name: ./example.rules
+              rules:
+              - alert: ExampleAlert
+                expr: vector(1)
+        - apiVersion: monitoring.coreos.com/v1
+          kind: PodMonitor
+          metadata:
+            name: example-app
+          spec:
+            selector:
+              matchLabels:
+                app: example-app
+            podMetricsEndpoints:
+            - port: web
+            namespaceSelector:
+              any: true
+        - apiVersion: monitoring.coreos.com/v1
+          kind: ThanosRuler
+          metadata:
+            name: thanos-ruler-demo
+            labels:
+              example: thanos-ruler
+            namespace: monitoring
+          spec:
+            image: quay.io/thanos/thanos
+            ruleSelector:
+              matchLabels:
+                role: my-thanos-rules
+            queryEndpoints:
+              - dnssrv+_http._tcp.my-thanos-querier.monitoring.svc.cluster.local
+      artifacthub.io/links: "- name: Chart source\n  url: https://github.com/arldka/helm-charts
+        \      \n- name: kube-prometheus-stack source\n  url: https://github.com/prometheus-community/helm-charts\n-
+        name: Upstream Project\n  url: https://github.com/prometheus-operator/kube-prometheus\n"
+      artifacthub.io/operator: "true"
+      artifacthub.io/operatorCapabilities: Deep Insights
+      artifacthub.io/prerelease: "true"
+      artifacthub.io/recommendations: |
+        - url: https://artifacthub.io/packages/helm/artifact-hub/artifact-hub
+        - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
+    apiVersion: v2
+    appVersion: 0.60.0
+    created: "2022-10-10T19:48:58.300270993Z"
+    description: Stripped down version of prometheus-operator to only provision the
+      operator and nothing else based on the kube-prometheus-stack chart.
+    digest: f4f2c3c3f97b9d9a1fe8f33df80ae85a94f7c41c10fedfb2e172c913b6e6f9e6
+    home: https://github.com/arldka/helm-charts
+    icon: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/Documentation/logos/prometheus-operator-logo.png
+    keywords:
+    - operator
+    - prometheus
+    - prometheus-operator
+    kubeVersion: '>=1.16.0-0'
+    name: prometheus-operator
+    type: application
+    urls:
+    - https://github.com/arldka/helm-charts/releases/download/prometheus-operator-2.0.0-rc2/prometheus-operator-2.0.0-rc2.tgz
+    version: 2.0.0-rc2
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
           description: Bumped prometheus-operator version to 0.60.0
       artifacthub.io/crds: |
         - kind: AlertmanagerConfig
@@ -1022,4 +1182,4 @@ entries:
     urls:
     - https://github.com/arldka/helm-charts/releases/download/prometheus-operator-0.1.0/prometheus-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2022-10-10T19:38:44.00952158Z"
+generated: "2022-10-10T19:48:58.300319794Z"
