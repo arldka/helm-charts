@@ -5,7 +5,7 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 2.0.0-rc2
+version: 2.0.0-rc3
 
 appVersion: 0.60.0
 
@@ -19,9 +19,6 @@ annotations:
   artifacthub.io/operator: "true"
   artifacthub.io/operatorCapabilities: Deep Insights
   artifacthub.io/prerelease: "true"
-  artifacthub.io/changes: |
-    - kind: changed
-      description: Bumped prometheus-operator version to 0.60.0 and adds changelog to ci
   artifacthub.io/links: |
     - name: Chart source
       url: https://github.com/arldka/helm-charts       
@@ -161,3 +158,6 @@ annotations:
   artifacthub.io/recommendations: |
     - url: https://artifacthub.io/packages/helm/artifact-hub/artifact-hub
     - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
+  # This will be generated automatically by the release workflow.
+  # https://github.com/camunda-community-hub/camunda-helm/blob/main/.github/workflows/release.yaml
+  artifacthub.io/changes: |
