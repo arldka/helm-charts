@@ -6,7 +6,6 @@ metadata:
     {{- if .Values.argocdInstall }}
     argocd.argoproj.io/sync-options: Replace=true
     {{- end  }}
-  creationTimestamp: null
   name: probes.monitoring.coreos.com
 spec:
   group: monitoring.coreos.com
