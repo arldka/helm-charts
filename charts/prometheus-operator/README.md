@@ -1,6 +1,6 @@
 # Prometheus Operator Chart
 
-![Version: 2.0.0-rc1](https://img.shields.io/badge/Version-2.0.0--rc1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.60.0](https://img.shields.io/badge/AppVersion-0.60.0-informational?style=flat-square)
+![Version: 2.0.0-rc2](https://img.shields.io/badge/Version-2.0.0--rc2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.60.0](https://img.shields.io/badge/AppVersion-0.60.0-informational?style=flat-square)
 
 ## Description
 
@@ -242,7 +242,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | tls.tlsMinVersion | string | `"VersionTLS13"` |  |
 | tolerations | list | `[]` |  |# prometheus-operator
 
-![Version: 2.0.0-rc1](https://img.shields.io/badge/Version-2.0.0--rc1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.60.0](https://img.shields.io/badge/AppVersion-0.60.0-informational?style=flat-square)
+![Version: 2.0.0-rc2](https://img.shields.io/badge/Version-2.0.0--rc2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.60.0](https://img.shields.io/badge/AppVersion-0.60.0-informational?style=flat-square)
 
 Stripped down version of prometheus-operator to only provision the operator and nothing else based on the kube-prometheus-stack chart.
 
