@@ -5,9 +5,9 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 2.0.0-rc3
+version: 2.0.1-rc1
 
-appVersion: 0.60.0
+appVersion: 0.60.1
 
 kubeVersion: ">=1.16.0-0"
 home: https://github.com/arldka/helm-charts
@@ -158,6 +158,4 @@ annotations:
   artifacthub.io/recommendations: |
     - url: https://artifacthub.io/packages/helm/artifact-hub/artifact-hub
     - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
-  # This will be generated automatically by the release workflow.
-  # https://github.com/camunda-community-hub/camunda-helm/blob/main/.github/workflows/release.yaml
   artifacthub.io/changes: |
