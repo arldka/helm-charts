@@ -1,5 +1,8 @@
 The changelog is automatically generated using [git-chglog](https://github.com/git-chglog/git-chglog) and it follows [Keep a Changelog](https://keepachangelog.com) format.
 
+<a name="prometheus-operator-2.0.1"></a>
+## [prometheus-operator-2.0.1] - 2022-10-24
+
 <a name="prometheus-operator-2.0.1-rc1"></a>
 ## [prometheus-operator-2.0.1-rc1] - 2022-10-11
 ### Changed
@@ -44,6 +47,7 @@ The changelog is automatically generated using [git-chglog](https://github.com/g
 <a name="prometheus-operator-0.1.0"></a>
 ## prometheus-operator-0.1.0 - 2022-09-13
 
+[prometheus-operator-2.0.1]: https://github.com/arldka/helm-charts/compare/prometheus-operator-2.0.1-rc1...prometheus-operator-2.0.1
 [prometheus-operator-2.0.1-rc1]: https://github.com/arldka/helm-charts/compare/prometheus-operator-2.0.0-rc3...prometheus-operator-2.0.1-rc1
 [prometheus-operator-2.0.0-rc3]: https://github.com/arldka/helm-charts/compare/prometheus-operator-2.0.0-rc2...prometheus-operator-2.0.0-rc3
 [prometheus-operator-2.0.0-rc2]: https://github.com/arldka/helm-charts/compare/prometheus-operator-2.0.0-rc1...prometheus-operator-2.0.0-rc2
