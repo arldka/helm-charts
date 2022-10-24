@@ -5,7 +5,7 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 2.0.1-rc1
+version: 2.0.1
 
 appVersion: 0.60.1
 
