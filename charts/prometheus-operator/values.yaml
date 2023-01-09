@@ -297,7 +297,7 @@ containerSecurityContext:
 ##
 image:
   repository: quay.io/prometheus-operator/prometheus-operator
-  tag: v0.60.1
+  tag: v0.62.0
   sha: ""
   pullPolicy: IfNotPresent
 
@@ -315,7 +315,7 @@ prometheusConfigReloader:
   # image to use for config and rule reloading
   image:
     repository: quay.io/prometheus-operator/prometheus-config-reloader
-    tag: v0.60.1
+    tag: v0.62.0
     sha: ""
 
   # resource config for prometheusConfigReloader
