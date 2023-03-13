@@ -1,5 +1,37 @@
 apiVersion: v1
 entries:
+  prometheus:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial Release
+      artifacthub.io/links: "- name: Chart source\n  url: https://github.com/arldka/helm-charts
+        \      \n- name: kube-prometheus-stack source\n  url: https://github.com/prometheus-community/helm-charts\n-
+        name: Upstream Project\n  url: https://github.com/prometheus-operator/kube-prometheus\n"
+      artifacthub.io/operator: "true"
+      artifacthub.io/operatorCapabilities: Deep Insights
+      artifacthub.io/prerelease: "true"
+      artifacthub.io/recommendations: |
+        - url: https://artifacthub.io/packages/helm/artifact-hub/artifact-hub
+        - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
+    apiVersion: v2
+    appVersion: 2.42.0
+    created: "2023-03-13T17:51:18.08606527Z"
+    description: A Helm chart that deploys a Prometheus instance using the prometheus
+      operator
+    digest: 9c0ae4ea83b0080b9bed383be5d4d60eaed46607fedd0663165c5a9ae6b06fa0
+    home: https://github.com/arldka/helm-charts
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    keywords:
+    - operator
+    - prometheus
+    - prometheus-operator
+    kubeVersion: '>=1.22.0-0'
+    name: prometheus
+    type: application
+    urls:
+    - https://github.com/arldka/helm-charts/releases/download/prometheus-0.1.0/prometheus-0.1.0.tgz
+    version: 0.1.0
   prometheus-operator:
   - annotations:
       artifacthub.io/changes: |-
@@ -2302,4 +2334,4 @@ entries:
     urls:
     - https://github.com/arldka/helm-charts/releases/download/prometheus-operator-0.1.0/prometheus-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-13T16:11:21.66129899Z"
+generated: "2023-03-13T17:51:18.086114071Z"
