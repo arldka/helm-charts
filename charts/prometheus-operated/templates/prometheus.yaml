@@ -1,0 +1,59 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: {{ .Values.instanceName }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  {{- if .Values.tolerations }}
+  tolerations:
+  {{ toYaml .Values.tolerations | nindent 4 }}
+  {{- end }}
+  {{- if .Values.additionalScrapeConfigs }}
+  additionalScrapeConfigs:
+    name: additional-scrape-configs-{{ .Values.instanceName }}
+    key: additional-scrape-configs.yaml
+  {{- end }}
+  enableAdminAPI: {{.Values.enableAdminAPI }}
+  replicas: 1
+  paused: {{ .Values.paused}}
+  {{- if .Values.priorityClassName }}
+  priorityClassName: {{ .Values.priorityClassName }}
+  {{- end }}
+  resources:
+  {{- toYaml .Values.resources | nindent 4 }}
+  retention: {{ .Values.retention }}
+  {{- if .Values.nodeSelector }}
+  nodeSelector:
+  {{ toYaml .Values.nodeSelector | indent 4 }}
+  {{- end }}
+  podMonitorNamespaceSelector:
+    matchLabels:
+      prometheus-{{ .Values.instanceName }}: "true"
+  podMonitorSelector:
+    matchLabels:
+      prometheus-{{ .Values.instanceName }}: "true"
+  ruleNamespaceSelector:
+    matchLabels:
+      prometheus-{{ .Values.instanceName }}: "true"
+  ruleSelector:
+    matchLabels:
+      prometheus-{{ .Values.instanceName }}: "true"
+  serviceMonitorNamespaceSelector:
+    matchLabels:
+      prometheus-{{ .Values.instanceName }}: "true"
+  serviceMonitorSelector:
+    matchLabels:
+      prometheus-{{ .Values.instanceName }}: "true"
+{{- if .Values.securityContext }}
+  securityContext:
+{{ toYaml .Values.securityContext | indent 4 }}
+{{- end }}
+  serviceAccountName: {{ include "prometheus.serviceAccountName" . }}
+  storage:
+    volumeClaimTemplate:
+      spec:
+        resources:
+          requests:
+            storage: {{ .Values.storageCapacity }}
+        storageClassName: {{ .Values.storageClassName }}
+  version: {{ .Values.version }}
