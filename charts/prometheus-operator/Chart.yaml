@@ -5,9 +5,9 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 3.0.0-rc2
+version: 4.0.0-rc1
 
-appVersion: 0.62.0
+appVersion: 0.63.0
 
 kubeVersion: ">=1.16.0-0"
 home: https://github.com/arldka/helm-charts
@@ -160,4 +160,6 @@ annotations:
     - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
   artifacthub.io/changes: |
     - kind: changed
-      description: Bumped prometheus-operator version to 0.62.0
+      description: Bumped prometheus-operator version to 0.63.0
+    - kind: changed
+      description: Reverts back to declaring crds in the crds folder
