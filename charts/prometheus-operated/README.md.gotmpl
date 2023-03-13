@@ -1,0 +1,51 @@
+# Prometheus Operated Chart
+
+{{ template "chart.badgesSection" . }}
+
+## Description
+
+{{ template "chart.description" . }}
+
+## Prerequisites
+
+{{ template "chart.requirementsSection" . }}
+
+## Get Helm Repository Info
+
+```console
+helm repo add arldka https://arldka.github.io/helm-charts
+helm repo update
+```
+
+_See [`helm repo`](https://helm.sh/docs/helm/helm_repo/) for command documentation._
+
+## Install Helm Chart
+
+```console
+helm install [RELEASE_NAME] arldka/prometheus-operated
+```
+
+_See [configuration](#configuration) below._
+
+_See [helm install](https://helm.sh/docs/helm/helm_install/) for command documentation._
+
+## Upgrading Chart
+
+```console
+helm upgrade [RELEASE_NAME] arldka/prometheus-operated
+```
+
+With Helm v3, CRDs created by this chart are not updated by default and should be manually updated.
+Consult also the [Helm Documentation on CRDs](https://helm.sh/docs/chart_best_practices/custom_resource_definitions).
+
+_See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command documentation._
+
+### Upgrading an existing Release to a new major version
+
+A major chart version change (like v1.2.3 -> v2.0.0) indicates that there is an incompatible breaking change needing manual actions.
+
+### Limitations
+
+Because the operator can only run as a single pod, there is potential for this component failure to cause rule deployment failure. Because this risk is outweighed by the benefit of having validation, the feature is enabled by default.
+
+{{ template "chart.valuesSection" . }}
