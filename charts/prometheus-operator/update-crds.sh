@@ -4,14 +4,14 @@ set -e
 
 ROOT_URL="https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v$1/example/prometheus-operator-crd/"
 
-curl -s "${ROOT_URL}monitoring.coreos.com_alertmanagerconfigs.yaml" -o templates/crd-alertmanagerconfigs.yaml
-curl -s "${ROOT_URL}monitoring.coreos.com_alertmanagers.yaml" -o templates/crd-alertmanagers.yaml
-curl -s "${ROOT_URL}monitoring.coreos.com_podmonitors.yaml" -o templates/crd-podmonitors.yaml
-curl -s "${ROOT_URL}monitoring.coreos.com_probes.yaml" -o templates/crd-probes.yaml
-curl -s "${ROOT_URL}monitoring.coreos.com_prometheuses.yaml" -o templates/crd-prometheuses.yaml
-curl -s "${ROOT_URL}monitoring.coreos.com_prometheusrules.yaml" -o templates/crd-prometheusrules.yaml
-curl -s "${ROOT_URL}monitoring.coreos.com_servicemonitors.yaml" -o templates/crd-servicemonitors.yaml
-curl -s "${ROOT_URL}monitoring.coreos.com_thanosrulers.yaml" -o templates/crd-servicemonitors.yaml
+curl -s "${ROOT_URL}monitoring.coreos.com_alertmanagerconfigs.yaml" -o crds/crd-alertmanagerconfigs.yaml
+curl -s "${ROOT_URL}monitoring.coreos.com_alertmanagers.yaml" -o crds/crd-alertmanagers.yaml
+curl -s "${ROOT_URL}monitoring.coreos.com_podmonitors.yaml" -o crds/crd-podmonitors.yaml
+curl -s "${ROOT_URL}monitoring.coreos.com_probes.yaml" -o crds/crd-probes.yaml
+curl -s "${ROOT_URL}monitoring.coreos.com_prometheuses.yaml" -o crds/crd-prometheuses.yaml
+curl -s "${ROOT_URL}monitoring.coreos.com_prometheusrules.yaml" -o crds/crd-prometheusrules.yaml
+curl -s "${ROOT_URL}monitoring.coreos.com_servicemonitors.yaml" -o crds/crd-servicemonitors.yaml
+curl -s "${ROOT_URL}monitoring.coreos.com_thanosrulers.yaml" -o crds/crd-servicemonitors.yaml
 
-sed  -z -i 's/---\n//' templates/crd-*
-sed -i -z 's/creationTimestamp: null/{{- if .Values.argocdInstall }}\n    argocd.argoproj.io\/sync-options: Replace=true\n  {{- end  }}/' templates/crd-*
+sed  -z -i 's/---\n//' crds/crd-*
+#sed -i -z 's/creationTimestamp: null/{{- if .Values.argocdInstall }}\n    argocd.argoproj.io\/sync-options: Replace=true\n  {{- end  }}/' crds/crd-*
