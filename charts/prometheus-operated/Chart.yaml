@@ -12,14 +12,14 @@ keywords:
   - prometheus
   - prometheus-operator
 
-version: 0.1.0
+version: 0.2.0
 
 appVersion: "2.42.0"
 
 annotations:
   artifacthub.io/operator: "true"
   artifacthub.io/operatorCapabilities: Deep Insights
-  artifacthub.io/prerelease: "true"
+  artifacthub.io/prerelease: "false"
   artifacthub.io/links: |
     - name: Chart source
       url: https://github.com/arldka/helm-charts       
@@ -32,4 +32,4 @@ annotations:
     - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
   artifacthub.io/changes: |
     - kind: changed
-      description: Initial Release
+      description: adds the possibility to set the type of service
