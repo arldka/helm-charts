@@ -1,6 +1,6 @@
 # Prometheus Operator Chart
 
-![Version: 4.0.0-rc1](https://img.shields.io/badge/Version-4.0.0--rc1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.63.0](https://img.shields.io/badge/AppVersion-0.63.0-informational?style=flat-square)
+![Version: 4.0.1-rc1](https://img.shields.io/badge/Version-4.0.1--rc1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.63.0](https://img.shields.io/badge/AppVersion-0.63.0-informational?style=flat-square)
 
 ## Description
 
@@ -197,9 +197,8 @@ Because the operator can only run as a single pod, there is potential for this c
 | admissionWebhooks.patch.affinity | object | `{}` |  |
 | admissionWebhooks.patch.enabled | bool | `true` |  |
 | admissionWebhooks.patch.image.pullPolicy | string | `"IfNotPresent"` |  |
-| admissionWebhooks.patch.image.repository | string | `"k8s.gcr.io/ingress-nginx/kube-webhook-certgen"` |  |
-| admissionWebhooks.patch.image.sha | string | `""` |  |
-| admissionWebhooks.patch.image.tag | string | `"v1.3.0"` |  |
+| admissionWebhooks.patch.image.repository | string | `"registry.k8s.io/ingress-nginx/kube-webhook-certgen"` |  |
+| admissionWebhooks.patch.image.tag | string | `"v20221220-controller-v1.5.1-58-g787ea74b6"` |  |
 | admissionWebhooks.patch.nodeSelector | object | `{}` |  |
 | admissionWebhooks.patch.podAnnotations | object | `{}` |  |
 | admissionWebhooks.patch.priorityClassName | string | `""` |  |
@@ -230,7 +229,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"quay.io/prometheus-operator/prometheus-operator"` |  |
 | image.sha | string | `""` |  |
-| image.tag | string | `"v0.62.0"` |  |
+| image.tag | string | `"v0.63.0"` |  |
 | kubeTargetVersionOverride | string | `""` |  |
 | kubeVersionOverride | string | `""` |  |
 | kubeletService.enabled | bool | `true` |  |
@@ -244,7 +243,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | podLabels | object | `{}` |  |
 | prometheusConfigReloader.image.repository | string | `"quay.io/prometheus-operator/prometheus-config-reloader"` |  |
 | prometheusConfigReloader.image.sha | string | `""` |  |
-| prometheusConfigReloader.image.tag | string | `"v0.62.0"` |  |
+| prometheusConfigReloader.image.tag | string | `"v0.63.0"` |  |
 | prometheusConfigReloader.resources.limits.cpu | string | `"200m"` |  |
 | prometheusConfigReloader.resources.limits.memory | string | `"50Mi"` |  |
 | prometheusConfigReloader.resources.requests.cpu | string | `"200m"` |  |
@@ -271,7 +270,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | serviceAccount.name | string | `""` |  |
 | thanosImage.repository | string | `"quay.io/thanos/thanos"` |  |
 | thanosImage.sha | string | `""` |  |
-| thanosImage.tag | string | `"v0.28.0"` |  |
+| thanosImage.tag | string | `"v0.30.2"` |  |
 | thanosRulerInstanceNamespaces | list | `[]` |  |
 | tls.enabled | bool | `true` |  |
 | tls.internalPort | int | `10250` |  |

@@ -5,7 +5,7 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 4.0.0-rc1
+version: 4.0.1-rc1
 
 appVersion: 0.63.0
 
@@ -163,3 +163,5 @@ annotations:
       description: Bumped prometheus-operator version to 0.63.0
     - kind: changed
       description: Reverts back to declaring crds in the crds folder
+    - kind: fixed
+      description: Removed deprecated thanosrulers crd
