@@ -5,7 +5,7 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 4.0.1-rc1
+version: 4.0.2
 
 appVersion: 0.63.0
 
@@ -18,7 +18,7 @@ keywords:
 annotations:
   artifacthub.io/operator: "true"
   artifacthub.io/operatorCapabilities: Deep Insights
-  artifacthub.io/prerelease: "true"
+  artifacthub.io/prerelease: "false"
   artifacthub.io/links: |
     - name: Chart source
       url: https://github.com/arldka/helm-charts       
@@ -159,9 +159,5 @@ annotations:
     - url: https://artifacthub.io/packages/helm/artifact-hub/artifact-hub
     - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
   artifacthub.io/changes: |
-    - kind: changed
-      description: Bumped prometheus-operator version to 0.63.0
-    - kind: changed
-      description: Reverts back to declaring crds in the crds folder
     - kind: fixed
-      description: Removed deprecated thanosrulers crd
+      description: servicemonitor crd was the same as thanosruler
