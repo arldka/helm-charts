@@ -12,7 +12,7 @@ keywords:
   - prometheus
   - prometheus-operator
 
-version: 0.2.1
+version: 0.2.2
 
 appVersion: "2.42.0"
 
@@ -32,4 +32,4 @@ annotations:
     - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
   artifacthub.io/changes: |
     - kind: fixed
-      description: fixes service definition
+      description: fixes service labelselector to match prometheus instance
