@@ -12,7 +12,7 @@ keywords:
   - prometheus
   - prometheus-operator
 
-version: 0.2.0
+version: 0.2.1
 
 appVersion: "2.42.0"
 
@@ -31,5 +31,5 @@ annotations:
     - url: https://artifacthub.io/packages/helm/artifact-hub/artifact-hub
     - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
   artifacthub.io/changes: |
-    - kind: changed
-      description: adds the possibility to set the type of service
+    - kind: fixed
+      description: fixes service definition
