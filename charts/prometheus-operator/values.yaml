@@ -296,7 +296,7 @@ containerSecurityContext:
 ##
 image:
   repository: quay.io/prometheus-operator/prometheus-operator
-  tag: v0.63.0
+  tag: v0.64.0
   sha: ""
   pullPolicy: IfNotPresent
 
@@ -314,7 +314,7 @@ prometheusConfigReloader:
   # image to use for config and rule reloading
   image:
     repository: quay.io/prometheus-operator/prometheus-config-reloader
-    tag: v0.63.0
+    tag: v0.64.0
     sha: ""
 
   # resource config for prometheusConfigReloader
@@ -323,7 +323,7 @@ prometheusConfigReloader:
       cpu: 200m
       memory: 50Mi
     limits:
-      cpu: 200m      
+      cpu: 200m
       memory: 50Mi
 
 ## Thanos side-car image when configured

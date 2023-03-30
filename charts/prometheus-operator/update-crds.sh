@@ -12,5 +12,7 @@ curl -s "${ROOT_URL}monitoring.coreos.com_prometheuses.yaml" -o crds/crd-prometh
 curl -s "${ROOT_URL}monitoring.coreos.com_prometheusrules.yaml" -o crds/crd-prometheusrules.yaml
 curl -s "${ROOT_URL}monitoring.coreos.com_servicemonitors.yaml" -o crds/crd-servicemonitors.yaml
 curl -s "${ROOT_URL}monitoring.coreos.com_thanosrulers.yaml" -o crds/crd-thanosrulers.yaml
+curl -s "${ROOT_URL}monitoring.coreos.com_prometheusagents.yaml" -o crds/crd-prometheusagents.yaml
+
 sed  -z -i 's/---\n//' crds/crd-*
 #sed -i -z 's/creationTimestamp: null/{{- if .Values.argocdInstall }}\n    argocd.argoproj.io\/sync-options: Replace=true\n  {{- end  }}/' crds/crd-*
