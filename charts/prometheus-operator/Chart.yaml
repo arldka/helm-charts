@@ -5,9 +5,9 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 4.0.3
+version: 5.0.0
 
-appVersion: 0.63.0
+appVersion: 0.64.0
 
 kubeVersion: ">=1.16.0-0"
 home: https://github.com/arldka/helm-charts
@@ -17,8 +17,12 @@ keywords:
   - prometheus-operator
 annotations:
   artifacthub.io/operator: "true"
+  artifacthub.io/category: "monitoring-logging"
   artifacthub.io/operatorCapabilities: Deep Insights
   artifacthub.io/prerelease: "false"
+  artifacthub.io/signKey: |
+    fingerprint: 0D259587FFFDABDA025F71E95932A4F1B214953A
+    url: https://keybase.io/arldka/pgp_keys.asc
   artifacthub.io/links: |
     - name: Chart source
       url: https://github.com/arldka/helm-charts       
@@ -159,5 +163,5 @@ annotations:
     - url: https://artifacthub.io/packages/helm/artifact-hub/artifact-hub
     - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
   artifacthub.io/changes: |
-    - kind: fixed
-      description: missing thanosruler crd definition
+    - kind: changed
+      description: updates the prometheus-operator version to 0.64.0
