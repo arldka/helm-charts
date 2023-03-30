@@ -12,7 +12,6 @@ appVersion: 0.64.0
 maintainers:
   - name: Arthur Laurent
     email: arldka@arldka.cloud
-    url: https://github.com/arldka
 
 kubeVersion: ">=1.16.0-0"
 home: https://github.com/arldka/helm-charts
