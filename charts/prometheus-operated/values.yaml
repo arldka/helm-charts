@@ -2,8 +2,8 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-version: v2.42.0
-instanceName: ""
+version: v2.43.0
+instanceName: "test"
 paused: false
 enableAdminAPI: false
 retention: 7d
