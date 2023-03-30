@@ -32,7 +32,7 @@ jobs:
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
         env:
-          CR_KEY: 'Arldka <public@arldka.cloud>'
+          CR_KEY: Arldka <public@arldka.cloud>
           CR_KEYRING: keyring.gpg
           CR_PASSPHRASE_FILE: passphrase-file.txt
           CR_SIGN: true
