@@ -1,7 +1,7 @@
 apiVersion: v2
 name: prometheus-operator
 icon: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/Documentation/logos/prometheus-operator-logo.png
-description: Stripped down version of prometheus-operator to only provision the operator and nothing else based on the kube-prometheus-stack chart. 
+description: Stripped down version of prometheus-operator to only provision the operator and nothing else based on the kube-prometheus-stack chart.
 
 type: application
 
@@ -25,7 +25,7 @@ annotations:
     url: https://keybase.io/arldka/pgp_keys.asc
   artifacthub.io/links: |
     - name: Chart source
-      url: https://github.com/arldka/helm-charts       
+      url: https://github.com/arldka/helm-charts
     - name: kube-prometheus-stack source
       url: https://github.com/prometheus-community/helm-charts
     - name: Upstream Project
