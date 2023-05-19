@@ -1,6 +1,6 @@
 # Prometheus Operator Chart
 
-![Version: 5.0.0](https://img.shields.io/badge/Version-5.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.64.0](https://img.shields.io/badge/AppVersion-0.64.0-informational?style=flat-square)
+![Version: 6.0.0](https://img.shields.io/badge/Version-6.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.65.1](https://img.shields.io/badge/AppVersion-0.65.1-informational?style=flat-square)
 
 ## Description
 
@@ -248,7 +248,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"quay.io/prometheus-operator/prometheus-operator"` |  |
 | image.sha | string | `""` |  |
-| image.tag | string | `"v0.64.0"` |  |
+| image.tag | string | `"v0.65.1"` |  |
 | kubeTargetVersionOverride | string | `""` |  |
 | kubeVersionOverride | string | `""` |  |
 | kubeletService.enabled | bool | `true` |  |
@@ -262,7 +262,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | podLabels | object | `{}` |  |
 | prometheusConfigReloader.image.repository | string | `"quay.io/prometheus-operator/prometheus-config-reloader"` |  |
 | prometheusConfigReloader.image.sha | string | `""` |  |
-| prometheusConfigReloader.image.tag | string | `"v0.64.0"` |  |
+| prometheusConfigReloader.image.tag | string | `"v0.65.1"` |  |
 | prometheusConfigReloader.resources.limits.cpu | string | `"200m"` |  |
 | prometheusConfigReloader.resources.limits.memory | string | `"50Mi"` |  |
 | prometheusConfigReloader.resources.requests.cpu | string | `"200m"` |  |

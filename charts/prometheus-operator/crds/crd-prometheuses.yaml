@@ -1965,8 +1965,6 @@ spec:
                           type: integer
                         grpc:
                           description: GRPC specifies an action involving a GRPC port.
-                            This is a beta field and requires enabling GRPCContainerProbe
-                            feature gate.
                           properties:
                             port:
                               description: Port number of the gRPC service. Number
@@ -2167,8 +2165,6 @@ spec:
                           type: integer
                         grpc:
                           description: GRPC specifies an action involving a GRPC port.
-                            This is a beta field and requires enabling GRPCContainerProbe
-                            feature gate.
                           properties:
                             port:
                               description: Port number of the gRPC service. Number
@@ -2289,6 +2285,26 @@ spec:
                           format: int32
                           type: integer
                       type: object
+                    resizePolicy:
+                      description: Resources resize policy for the container.
+                      items:
+                        description: ContainerResizePolicy represents resource resize
+                          policy for the container.
+                        properties:
+                          resourceName:
+                            description: 'Name of the resource to which this resource
+                              resize policy applies. Supported values: cpu, memory.'
+                            type: string
+                          restartPolicy:
+                            description: Restart policy to apply when specified resource
+                              is resized. If not specified, it defaults to NotRequired.
+                            type: string
+                        required:
+                        - resourceName
+                        - restartPolicy
+                        type: object
+                      type: array
+                      x-kubernetes-list-type: atomic
                     resources:
                       description: 'Compute Resources required by this container.
                         Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
@@ -2297,7 +2313,8 @@ spec:
                           description: "Claims lists the names of resources, defined
                             in spec.resourceClaims, that are used by this container.
                             \n This is an alpha field and requires enabling the DynamicResourceAllocation
-                            feature gate. \n This field is immutable."
+                            feature gate. \n This field is immutable. It can only
+                            be set for containers."
                           items:
                             description: ResourceClaim references one entry in PodSpec.ResourceClaims.
                             properties:
@@ -2334,8 +2351,8 @@ spec:
                           description: 'Requests describes the minimum amount of compute
                             resources required. If Requests is omitted for a container,
                             it defaults to Limits if that is explicitly specified,
-                            otherwise to an implementation-defined value. More info:
-                            https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
+                            otherwise to an implementation-defined value. Requests
+                            cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                           type: object
                       type: object
                     securityContext:
@@ -2548,8 +2565,6 @@ spec:
                           type: integer
                         grpc:
                           description: GRPC specifies an action involving a GRPC port.
-                            This is a beta field and requires enabling GRPCContainerProbe
-                            feature gate.
                           properties:
                             port:
                               description: Port number of the gRPC service. Number
@@ -3438,8 +3453,6 @@ spec:
                           type: integer
                         grpc:
                           description: GRPC specifies an action involving a GRPC port.
-                            This is a beta field and requires enabling GRPCContainerProbe
-                            feature gate.
                           properties:
                             port:
                               description: Port number of the gRPC service. Number
@@ -3640,8 +3653,6 @@ spec:
                           type: integer
                         grpc:
                           description: GRPC specifies an action involving a GRPC port.
-                            This is a beta field and requires enabling GRPCContainerProbe
-                            feature gate.
                           properties:
                             port:
                               description: Port number of the gRPC service. Number
@@ -3762,6 +3773,26 @@ spec:
                           format: int32
                           type: integer
                       type: object
+                    resizePolicy:
+                      description: Resources resize policy for the container.
+                      items:
+                        description: ContainerResizePolicy represents resource resize
+                          policy for the container.
+                        properties:
+                          resourceName:
+                            description: 'Name of the resource to which this resource
+                              resize policy applies. Supported values: cpu, memory.'
+                            type: string
+                          restartPolicy:
+                            description: Restart policy to apply when specified resource
+                              is resized. If not specified, it defaults to NotRequired.
+                            type: string
+                        required:
+                        - resourceName
+                        - restartPolicy
+                        type: object
+                      type: array
+                      x-kubernetes-list-type: atomic
                     resources:
                       description: 'Compute Resources required by this container.
                         Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
@@ -3770,7 +3801,8 @@ spec:
                           description: "Claims lists the names of resources, defined
                             in spec.resourceClaims, that are used by this container.
                             \n This is an alpha field and requires enabling the DynamicResourceAllocation
-                            feature gate. \n This field is immutable."
+                            feature gate. \n This field is immutable. It can only
+                            be set for containers."
                           items:
                             description: ResourceClaim references one entry in PodSpec.ResourceClaims.
                             properties:
@@ -3807,8 +3839,8 @@ spec:
                           description: 'Requests describes the minimum amount of compute
                             resources required. If Requests is omitted for a container,
                             it defaults to Limits if that is explicitly specified,
-                            otherwise to an implementation-defined value. More info:
-                            https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
+                            otherwise to an implementation-defined value. Requests
+                            cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                           type: object
                       type: object
                     securityContext:
@@ -4021,8 +4053,6 @@ spec:
                           type: integer
                         grpc:
                           description: GRPC specifies an action involving a GRPC port.
-                            This is a beta field and requires enabling GRPCContainerProbe
-                            feature gate.
                           properties:
                             port:
                               description: Port number of the gRPC service. Number
@@ -4379,14 +4409,15 @@ spec:
                 x-kubernetes-map-type: atomic
               podMonitorSelector:
                 description: "*Experimental* PodMonitors to be selected for target
-                  discovery. \n If `spec.serviceMonitorSelector`, `spec.podMonitorSelector`
-                  and `spec.probeSelector` are null, the Prometheus configuration
-                  is unmanaged. The Prometheus operator will ensure that the Prometheus
-                  configuration's Secret exists, but it is the responsibility of the
-                  user to provide the raw gzipped Prometheus configuration under the
-                  `prometheus.yaml.gz` key. This behavior is deprecated and will be
-                  removed in the next major version of the custom resource definition.
-                  It is recommended to use `spec.additionalScrapeConfigs` instead."
+                  discovery. \n If `spec.serviceMonitorSelector`, `spec.podMonitorSelector`,
+                  `spec.probeSelector` and `spec.scrapeConfigSelector` are null, the
+                  Prometheus configuration is unmanaged. The Prometheus operator will
+                  ensure that the Prometheus configuration's Secret exists, but it
+                  is the responsibility of the user to provide the raw gzipped Prometheus
+                  configuration under the `prometheus.yaml.gz` key. This behavior
+                  is deprecated and will be removed in the next major version of the
+                  custom resource definition. It is recommended to use `spec.additionalScrapeConfigs`
+                  instead."
                 properties:
                   matchExpressions:
                     description: matchExpressions is a list of label selector requirements.
@@ -4492,14 +4523,15 @@ spec:
                 x-kubernetes-map-type: atomic
               probeSelector:
                 description: "*Experimental* Probes to be selected for target discovery.
-                  \n If `spec.serviceMonitorSelector`, `spec.podMonitorSelector` and
-                  `spec.probeSelector` are null, the Prometheus configuration is unmanaged.
-                  The Prometheus operator will ensure that the Prometheus configuration's
-                  Secret exists, but it is the responsibility of the user to provide
-                  the raw gzipped Prometheus configuration under the `prometheus.yaml.gz`
-                  key. This behavior is deprecated and will be removed in the next
-                  major version of the custom resource definition. It is recommended
-                  to use `spec.additionalScrapeConfigs` instead."
+                  \n If `spec.serviceMonitorSelector`, `spec.podMonitorSelector`,
+                  `spec.probeSelector` and `spec.scrapeConfigSelector` are null, the
+                  Prometheus configuration is unmanaged. The Prometheus operator will
+                  ensure that the Prometheus configuration's Secret exists, but it
+                  is the responsibility of the user to provide the raw gzipped Prometheus
+                  configuration under the `prometheus.yaml.gz` key. This behavior
+                  is deprecated and will be removed in the next major version of the
+                  custom resource definition. It is recommended to use `spec.additionalScrapeConfigs`
+                  instead."
                 properties:
                   matchExpressions:
                     description: matchExpressions is a list of label selector requirements.
@@ -5499,7 +5531,8 @@ spec:
                     description: "Claims lists the names of resources, defined in
                       spec.resourceClaims, that are used by this container. \n This
                       is an alpha field and requires enabling the DynamicResourceAllocation
-                      feature gate. \n This field is immutable."
+                      feature gate. \n This field is immutable. It can only be set
+                      for containers."
                     items:
                       description: ResourceClaim references one entry in PodSpec.ResourceClaims.
                       properties:
@@ -5535,7 +5568,8 @@ spec:
                     description: 'Requests describes the minimum amount of compute
                       resources required. If Requests is omitted for a container,
                       it defaults to Limits if that is explicitly specified, otherwise
-                      to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
+                      to an implementation-defined value. Requests cannot exceed Limits.
+                      More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                     type: object
                 type: object
               retention:
@@ -5674,6 +5708,106 @@ spec:
                         type: string
                     type: object
                 type: object
+              scrapeConfigNamespaceSelector:
+                description: Namespace's labels to match for ScrapeConfig discovery.
+                  If nil, only check own namespace.
+                properties:
+                  matchExpressions:
+                    description: matchExpressions is a list of label selector requirements.
+                      The requirements are ANDed.
+                    items:
+                      description: A label selector requirement is a selector that
+                        contains values, a key, and an operator that relates the key
+                        and values.
+                      properties:
+                        key:
+                          description: key is the label key that the selector applies
+                            to.
+                          type: string
+                        operator:
+                          description: operator represents a key's relationship to
+                            a set of values. Valid operators are In, NotIn, Exists
+                            and DoesNotExist.
+                          type: string
+                        values:
+                          description: values is an array of string values. If the
+                            operator is In or NotIn, the values array must be non-empty.
+                            If the operator is Exists or DoesNotExist, the values
+                            array must be empty. This array is replaced during a strategic
+                            merge patch.
+                          items:
+                            type: string
+                          type: array
+                      required:
+                      - key
+                      - operator
+                      type: object
+                    type: array
+                  matchLabels:
+                    additionalProperties:
+                      type: string
+                    description: matchLabels is a map of {key,value} pairs. A single
+                      {key,value} in the matchLabels map is equivalent to an element
+                      of matchExpressions, whose key field is "key", the operator
+                      is "In", and the values array contains only "value". The requirements
+                      are ANDed.
+                    type: object
+                type: object
+                x-kubernetes-map-type: atomic
+              scrapeConfigSelector:
+                description: "*Experimental* ScrapeConfigs to be selected for target
+                  discovery. \n If `spec.serviceMonitorSelector`, `spec.podMonitorSelector`,
+                  `spec.probeSelector` and `spec.scrapeConfigSelector` are null, the
+                  Prometheus configuration is unmanaged. The Prometheus operator will
+                  ensure that the Prometheus configuration's Secret exists, but it
+                  is the responsibility of the user to provide the raw gzipped Prometheus
+                  configuration under the `prometheus.yaml.gz` key. This behavior
+                  is deprecated and will be removed in the next major version of the
+                  custom resource definition. It is recommended to use `spec.additionalScrapeConfigs`
+                  instead."
+                properties:
+                  matchExpressions:
+                    description: matchExpressions is a list of label selector requirements.
+                      The requirements are ANDed.
+                    items:
+                      description: A label selector requirement is a selector that
+                        contains values, a key, and an operator that relates the key
+                        and values.
+                      properties:
+                        key:
+                          description: key is the label key that the selector applies
+                            to.
+                          type: string
+                        operator:
+                          description: operator represents a key's relationship to
+                            a set of values. Valid operators are In, NotIn, Exists
+                            and DoesNotExist.
+                          type: string
+                        values:
+                          description: values is an array of string values. If the
+                            operator is In or NotIn, the values array must be non-empty.
+                            If the operator is Exists or DoesNotExist, the values
+                            array must be empty. This array is replaced during a strategic
+                            merge patch.
+                          items:
+                            type: string
+                          type: array
+                      required:
+                      - key
+                      - operator
+                      type: object
+                    type: array
+                  matchLabels:
+                    additionalProperties:
+                      type: string
+                    description: matchLabels is a map of {key,value} pairs. A single
+                      {key,value} in the matchLabels map is equivalent to an element
+                      of matchExpressions, whose key field is "key", the operator
+                      is "In", and the values array contains only "value". The requirements
+                      are ANDed.
+                    type: object
+                type: object
+                x-kubernetes-map-type: atomic
               scrapeInterval:
                 default: 30s
                 description: 'Interval between consecutive scrapes. Default: `30s`'
@@ -5914,14 +6048,15 @@ spec:
                 x-kubernetes-map-type: atomic
               serviceMonitorSelector:
                 description: "ServiceMonitors to be selected for target discovery.
-                  \n If `spec.serviceMonitorSelector`, `spec.podMonitorSelector` and
-                  `spec.probeSelector` are null, the Prometheus configuration is unmanaged.
-                  The Prometheus operator will ensure that the Prometheus configuration's
-                  Secret exists, but it is the responsibility of the user to provide
-                  the raw gzipped Prometheus configuration under the `prometheus.yaml.gz`
-                  key. This behavior is deprecated and will be removed in the next
-                  major version of the custom resource definition. It is recommended
-                  to use `spec.additionalScrapeConfigs` instead."
+                  \n If `spec.serviceMonitorSelector`, `spec.podMonitorSelector`,
+                  `spec.probeSelector` and `spec.scrapeConfigSelector` are null, the
+                  Prometheus configuration is unmanaged. The Prometheus operator will
+                  ensure that the Prometheus configuration's Secret exists, but it
+                  is the responsibility of the user to provide the raw gzipped Prometheus
+                  configuration under the `prometheus.yaml.gz` key. This behavior
+                  is deprecated and will be removed in the next major version of the
+                  custom resource definition. It is recommended to use `spec.additionalScrapeConfigs`
+                  instead."
                 properties:
                   matchExpressions:
                     description: matchExpressions is a list of label selector requirements.
@@ -6012,7 +6147,7 @@ spec:
                           medium EmptyDir would be the minimum value between the SizeLimit
                           specified here and the sum of memory limits of all containers
                           in a pod. The default is nil which means that the limit
-                          is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir'
+                          is undefined. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir'
                         pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                         x-kubernetes-int-or-string: true
                     type: object
@@ -6167,7 +6302,8 @@ spec:
                                       defined in spec.resourceClaims, that are used
                                       by this container. \n This is an alpha field
                                       and requires enabling the DynamicResourceAllocation
-                                      feature gate. \n This field is immutable."
+                                      feature gate. \n This field is immutable. It
+                                      can only be set for containers."
                                     items:
                                       description: ResourceClaim references one entry
                                         in PodSpec.ResourceClaims.
@@ -6206,8 +6342,8 @@ spec:
                                       of compute resources required. If Requests is
                                       omitted for a container, it defaults to Limits
                                       if that is explicitly specified, otherwise to
-                                      an implementation-defined value. More info:
-                                      https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
+                                      an implementation-defined value. Requests cannot
+                                      exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                                     type: object
                                 type: object
                               selector:
@@ -6434,7 +6570,8 @@ spec:
                                   defined in spec.resourceClaims, that are used by
                                   this container. \n This is an alpha field and requires
                                   enabling the DynamicResourceAllocation feature gate.
-                                  \n This field is immutable."
+                                  \n This field is immutable. It can only be set for
+                                  containers."
                                 items:
                                   description: ResourceClaim references one entry
                                     in PodSpec.ResourceClaims.
@@ -6473,7 +6610,8 @@ spec:
                                   of compute resources required. If Requests is omitted
                                   for a container, it defaults to Limits if that is
                                   explicitly specified, otherwise to an implementation-defined
-                                  value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
+                                  value. Requests cannot exceed Limits. More info:
+                                  https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                                 type: object
                             type: object
                           selector:
@@ -6583,7 +6721,7 @@ spec:
                               volume claim. If underlying persistent volume is being
                               resized then the Condition will be set to 'ResizeStarted'.
                             items:
-                              description: PersistentVolumeClaimCondition contails
+                              description: PersistentVolumeClaimCondition contains
                                 details about state of pvc
                               properties:
                                 lastProbeTime:
@@ -6909,7 +7047,8 @@ spec:
                         description: "Claims lists the names of resources, defined
                           in spec.resourceClaims, that are used by this container.
                           \n This is an alpha field and requires enabling the DynamicResourceAllocation
-                          feature gate. \n This field is immutable."
+                          feature gate. \n This field is immutable. It can only be
+                          set for containers."
                         items:
                           description: ResourceClaim references one entry in PodSpec.ResourceClaims.
                           properties:
@@ -6946,7 +7085,8 @@ spec:
                         description: 'Requests describes the minimum amount of compute
                           resources required. If Requests is omitted for a container,
                           it defaults to Limits if that is explicitly specified, otherwise
-                          to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
+                          to an implementation-defined value. Requests cannot exceed
+                          Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                         type: object
                     type: object
                   sha:
@@ -7129,14 +7269,18 @@ spec:
                       type: object
                       x-kubernetes-map-type: atomic
                     matchLabelKeys:
-                      description: MatchLabelKeys is a set of pod label keys to select
+                      description: "MatchLabelKeys is a set of pod label keys to select
                         the pods over which spreading will be calculated. The keys
                         are used to lookup values from the incoming pod labels, those
                         key-value labels are ANDed with labelSelector to select the
                         group of existing pods over which spreading will be calculated
-                        for the incoming pod. Keys that don't exist in the incoming
-                        pod labels will be ignored. A null or empty list means only
-                        match against labelSelector.
+                        for the incoming pod. The same key is forbidden to exist in
+                        both MatchLabelKeys and LabelSelector. MatchLabelKeys cannot
+                        be set when LabelSelector isn't set. Keys that don't exist
+                        in the incoming pod labels will be ignored. A null or empty
+                        list means only match against labelSelector. \n This is a
+                        beta field and requires the MatchLabelKeysInPodTopologySpread
+                        feature gate to be enabled (enabled by default)."
                       items:
                         type: string
                       type: array
@@ -7691,7 +7835,7 @@ spec:
                             medium EmptyDir would be the minimum value between the
                             SizeLimit specified here and the sum of memory limits
                             of all containers in a pod. The default is nil which means
-                            that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir'
+                            that the limit is undefined. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir'
                           pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
                           x-kubernetes-int-or-string: true
                       type: object
@@ -7863,7 +8007,8 @@ spec:
                                         defined in spec.resourceClaims, that are used
                                         by this container. \n This is an alpha field
                                         and requires enabling the DynamicResourceAllocation
-                                        feature gate. \n This field is immutable."
+                                        feature gate. \n This field is immutable.
+                                        It can only be set for containers."
                                       items:
                                         description: ResourceClaim references one
                                           entry in PodSpec.ResourceClaims.
@@ -7903,8 +8048,8 @@ spec:
                                         amount of compute resources required. If Requests
                                         is omitted for a container, it defaults to
                                         Limits if that is explicitly specified, otherwise
-                                        to an implementation-defined value. More info:
-                                        https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
+                                        to an implementation-defined value. Requests
+                                        cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/'
                                       type: object
                                   type: object
                                 selector:
@@ -9090,7 +9235,7 @@ spec:
                 description: The current state of the Prometheus deployment.
                 items:
                   description: Condition represents the state of the resources associated
-                    with the Prometheus or Alertmanager resource.
+                    with the Prometheus, Alertmanager or ThanosRuler resource.
                   properties:
                     lastTransitionTime:
                       description: lastTransitionTime is the time of the last update
