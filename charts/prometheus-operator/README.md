@@ -69,6 +69,25 @@ _See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command documen
 
 A major chart version change (like v1.2.3 -> v2.0.0) indicates that there is an incompatible breaking change needing manual actions.
 
+### From 5.x to 6.x
+
+This version upgrades Prometheus-Operator to v0.65.1.
+
+Run these commands to update the CRDs before applying the upgrade to deploy the operator.
+For better compatibility and upgrade of the CRD versions, the prometheus-operator-crd-full are used to maintain multiple versions of the CRD to ease migration.
+
+```console
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.0/example/prometheus-operator-crd-full/monitoring.coreos.com_alertmanagerconfigs.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.0/example/prometheus-operator-crd-full/monitoring.coreos.com_alertmanagers.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.0/example/prometheus-operator-crd-full/monitoring.coreos.com_podmonitors.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.0/example/prometheus-operator-crd-full/monitoring.coreos.com_probes.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheuses.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheusrules.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.0/example/prometheus-operator-crd-full/monitoring.coreos.com_servicemonitors.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.0/example/prometheus-operator-crd-full/monitoring.coreos.com_thanosrulers.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheusagents.yaml
+```
+
 ### From 4.x to 5.x
 
 This version upgrades Prometheus-Operator to v0.64.0.
@@ -77,15 +96,15 @@ Run these commands to update the CRDs before applying the upgrade to deploy the 
 For better compatibility and upgrade of the CRD versions, the prometheus-operator-crd-full are used to maintain multiple versions of the CRD to ease migration.
 
 ```console
-kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.0/example/prometheus-operator-crd-full/monitoring.coreos.com_alertmanagerconfigs.yaml
-kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.0/example/prometheus-operator-crd-full/monitoring.coreos.com_alertmanagers.yaml
-kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.0/example/prometheus-operator-crd-full/monitoring.coreos.com_podmonitors.yaml
-kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.0/example/prometheus-operator-crd-full/monitoring.coreos.com_probes.yaml
-kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheuses.yaml
-kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheusrules.yaml
-kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.0/example/prometheus-operator-crd-full/monitoring.coreos.com_servicemonitors.yaml
-kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.0/example/prometheus-operator-crd-full/monitoring.coreos.com_thanosrulers.yaml
-kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheusagents.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.64.0/example/prometheus-operator-crd-full/monitoring.coreos.com_alertmanagerconfigs.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.64.0/example/prometheus-operator-crd-full/monitoring.coreos.com_alertmanagers.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.64.0/example/prometheus-operator-crd-full/monitoring.coreos.com_podmonitors.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.64.0/example/prometheus-operator-crd-full/monitoring.coreos.com_probes.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.64.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheuses.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.64.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheusrules.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.64.0/example/prometheus-operator-crd-full/monitoring.coreos.com_servicemonitors.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.64.0/example/prometheus-operator-crd-full/monitoring.coreos.com_thanosrulers.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.64.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheusagents.yaml
 ```
 
 ### From 3.x to 4.x
