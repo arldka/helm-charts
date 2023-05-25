@@ -22,6 +22,48 @@ entries:
         fingerprint: 0D259587FFFDABDA025F71E95932A4F1B214953A
         url: https://keybase.io/arldka/pgp_keys.asc
     apiVersion: v2
+    appVersion: 2.44.0
+    created: "2023-05-25T18:38:37.160388018Z"
+    description: A Helm chart that deploys a Prometheus instance using the prometheus
+      operator
+    digest: 11b9743c59ce34937551f16d986f23fa9e8cbd180e2e0582df6b72228b8feecd
+    home: https://github.com/arldka/helm-charts
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    keywords:
+    - operator
+    - prometheus
+    - prometheus-operator
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - email: public@arldka.cloud
+      name: arldka
+      url: https://github.com/arldka
+    name: prometheus-operated
+    type: application
+    urls:
+    - https://github.com/arldka/helm-charts/releases/download/prometheus-operated-0.3.0/prometheus-operated-0.3.0.tgz
+    version: 0.3.0
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: the charts are now signed
+      artifacthub.io/links: |
+        - name: Chart source
+          url: https://github.com/arldka/helm-charts
+        - name: kube-prometheus-stack source
+          url: https://github.com/prometheus-community/helm-charts
+        - name: Upstream Project
+          url: https://github.com/prometheus-operator/kube-prometheus
+      artifacthub.io/operator: "true"
+      artifacthub.io/operatorCapabilities: Deep Insights
+      artifacthub.io/prerelease: "false"
+      artifacthub.io/recommendations: |
+        - url: https://artifacthub.io/packages/helm/artifact-hub/artifact-hub
+        - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
+      artifacthub.io/signKey: |
+        fingerprint: 0D259587FFFDABDA025F71E95932A4F1B214953A
+        url: https://keybase.io/arldka/pgp_keys.asc
+    apiVersion: v2
     appVersion: 2.43.0
     created: "2023-03-30T17:27:51.175097296Z"
     description: A Helm chart that deploys a Prometheus instance using the prometheus
@@ -3133,4 +3175,4 @@ entries:
     urls:
     - https://github.com/arldka/helm-charts/releases/download/prometheus-operator-0.1.0/prometheus-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-19T17:05:43.624651364Z"
+generated: "2023-05-25T18:38:37.160839327Z"
