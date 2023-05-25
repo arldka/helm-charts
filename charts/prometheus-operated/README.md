@@ -1,6 +1,6 @@
 # Prometheus Operated Chart
 
-![Version: 0.2.3](https://img.shields.io/badge/Version-0.2.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.43.0](https://img.shields.io/badge/AppVersion-2.43.0-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.44.0](https://img.shields.io/badge/AppVersion-2.44.0-informational?style=flat-square)
 
 ## Description
 
@@ -55,6 +55,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | additionalScrapeConfigs | list | `[]` |  |
+| annotations | object | `{}` |  |
 | enableAdminAPI | bool | `false` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
@@ -63,7 +64,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
-| instanceName | string | `"test"` |  |
+| instanceName | string | `"default"` |  |
 | nodeSelector | object | `{}` |  |
 | paused | bool | `false` |  |
 | resources | object | `{}` |  |
@@ -79,4 +80,4 @@ Because the operator can only run as a single pod, there is potential for this c
 | serviceAccount.name | string | `""` |  |
 | storageCapacity | string | `"30Gi"` |  |
 | storageClassName | string | `""` |  |
-| version | string | `"v2.43.0"` |  |
+| version | string | `"v2.44.0"` |  |

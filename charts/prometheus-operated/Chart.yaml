@@ -12,13 +12,13 @@ keywords:
   - prometheus
   - prometheus-operator
 
-version: 0.2.3
+version: 0.3.0
 
-appVersion: "2.43.0"
+appVersion: "2.44.0"
 
 maintainers:
   - name: arldka
-    email: arldka@arldka.cloud
+    email: public@arldka.cloud
     url: https://github.com/arldka
 
 annotations:

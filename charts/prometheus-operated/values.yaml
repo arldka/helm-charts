@@ -2,13 +2,15 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-version: v2.43.0
-instanceName: "test"
+version: v2.44.0
+instanceName: "default"
 paused: false
 enableAdminAPI: false
 retention: 7d
 storageClassName: ""
 storageCapacity: 30Gi
+
+annotations: {}
 
 serviceAccount:
   # Specifies whether a service account should be created
