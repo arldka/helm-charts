@@ -12,7 +12,7 @@ metadata:
     {{- include "prometheus-operator.labels" . | nindent 4 }}
 rules:
 - apiGroups: ["monitoring.coreos.com"]
-  resources: ["alertmanagers", "alertmanagerconfigs", "prometheuses", "prometheusrules", "servicemonitors", "podmonitors", "probes"]
+  resources: ["alertmanagers", "alertmanagerconfigs", "prometheuses", "prometheusrules", "servicemonitors", "podmonitors", "probes", "scrapeconfigs", "thanosrulers", "prometheusagents"]
   verbs: ["get", "list", "watch"]
 ---
 kind: ClusterRole
@@ -26,6 +26,6 @@ metadata:
     {{- include "prometheus-operator.labels" . | nindent 4 }}
 rules:
 - apiGroups: ["monitoring.coreos.com"]
-  resources: ["alertmanagers", "alertmanagerconfigs", "prometheuses", "prometheusrules", "servicemonitors", "podmonitors", "probes"]
+  resources: ["alertmanagers", "alertmanagerconfigs", "prometheuses", "prometheusrules", "servicemonitors", "podmonitors", "probes", "scrapeconfigs", "thanosrulers", "prometheusagents"]
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 {{- end }}
