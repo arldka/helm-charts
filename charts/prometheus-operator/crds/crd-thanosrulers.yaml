@@ -2303,6 +2303,7 @@ spec:
                       - servicemonitors
                       - podmonitors
                       - probes
+                      - scrapeconfigs
                       type: string
                   required:
                   - namespace
