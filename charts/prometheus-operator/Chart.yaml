@@ -5,9 +5,9 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 8.0.0
+version: 8.0.1
 
-appVersion: 0.67.0
+appVersion: 0.67.1
 
 maintainers:
   - name: arldka
@@ -169,8 +169,6 @@ annotations:
     - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
   artifacthub.io/changes: |
     - kind: changed
-      description: updates the prometheus-operator version to 0.67.0
-    - kind: added
-      description: adds the scrapeconfigs crd
-    - kind: fixed
-      description: updates the aggregateclusterroles to include newer crds
+      description: updates the prometheus-operator version to 0.67.1
+    - kind: changed
+      description: depreciates the argocdInstall value
