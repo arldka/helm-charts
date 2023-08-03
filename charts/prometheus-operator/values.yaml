@@ -28,10 +28,6 @@ commonLabels: {}
 # scmhash: abc123
 # myLabel: aakkmd
 
-## If you are installing the chart using Argo CD, you may set the value to true to add the synx policy replace to the CRDs
-##
-argocdInstall: false
-
 global:
   rbac:
     create: true
@@ -296,7 +292,7 @@ containerSecurityContext:
 ##
 image:
   repository: quay.io/prometheus-operator/prometheus-operator
-  tag: v0.67.0
+  tag: v0.67.1
   sha: ""
   pullPolicy: IfNotPresent
 
@@ -314,7 +310,7 @@ prometheusConfigReloader:
   # image to use for config and rule reloading
   image:
     repository: quay.io/prometheus-operator/prometheus-config-reloader
-    tag: v0.67.0
+    tag: v0.67.1
     sha: ""
 
   # resource config for prometheusConfigReloader

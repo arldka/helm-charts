@@ -1,6 +1,6 @@
 # Prometheus Operator Chart
 
-![Version: 8.0.0](https://img.shields.io/badge/Version-8.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.67.0](https://img.shields.io/badge/AppVersion-0.67.0-informational?style=flat-square)
+![Version: 8.0.1](https://img.shields.io/badge/Version-8.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.67.1](https://img.shields.io/badge/AppVersion-0.67.1-informational?style=flat-square)
 
 ## Description
 
@@ -292,7 +292,6 @@ Because the operator can only run as a single pod, there is potential for this c
 | alertmanagerConfigNamespaces | list | `[]` |  |
 | alertmanagerInstanceNamespaces | list | `[]` |  |
 | annotations | object | `{}` |  |
-| argocdInstall | bool | `false` |  |
 | commonLabels | object | `{}` |  |
 | containerSecurityContext.allowPrivilegeEscalation | bool | `false` |  |
 | containerSecurityContext.readOnlyRootFilesystem | bool | `true` |  |
@@ -308,7 +307,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"quay.io/prometheus-operator/prometheus-operator"` |  |
 | image.sha | string | `""` |  |
-| image.tag | string | `"v0.67.0"` |  |
+| image.tag | string | `"v0.67.1"` |  |
 | kubeTargetVersionOverride | string | `""` |  |
 | kubeVersionOverride | string | `""` |  |
 | kubeletService.enabled | bool | `true` |  |
@@ -322,7 +321,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | podLabels | object | `{}` |  |
 | prometheusConfigReloader.image.repository | string | `"quay.io/prometheus-operator/prometheus-config-reloader"` |  |
 | prometheusConfigReloader.image.sha | string | `""` |  |
-| prometheusConfigReloader.image.tag | string | `"v0.67.0"` |  |
+| prometheusConfigReloader.image.tag | string | `"v0.67.1"` |  |
 | prometheusConfigReloader.resources.limits.cpu | string | `"200m"` |  |
 | prometheusConfigReloader.resources.limits.memory | string | `"50Mi"` |  |
 | prometheusConfigReloader.resources.requests.cpu | string | `"200m"` |  |
