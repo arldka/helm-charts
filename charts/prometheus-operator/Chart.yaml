@@ -5,9 +5,9 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 8.0.1
+version: 9.0.0
 
-appVersion: 0.67.1
+appVersion: 0.69.0
 
 maintainers:
   - name: arldka
