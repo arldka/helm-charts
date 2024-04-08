@@ -5,16 +5,16 @@ description: Stripped down version of prometheus-operator to only provision the 
 
 type: application
 
-version: 9.0.1
+version: 10.0.0
 
-appVersion: 0.69.1
+appVersion: 0.70.0
 
 maintainers:
   - name: arldka
     email: arldka@arldka.cloud
     url: https://github.com/arldka
 
-kubeVersion: ">=1.16.0-0"
+kubeVersion: ">=1.19.0-0"
 home: https://github.com/arldka/helm-charts
 keywords:
   - operator
@@ -169,4 +169,4 @@ annotations:
     - url: https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack
   artifacthub.io/changes: |
     - kind: changed
-      description: updates the prometheus-operator version 0.69.1
+      description: updates the prometheus-operator version 0.70.0
