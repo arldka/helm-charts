@@ -1,5 +1,5 @@
 nodeSelector:
-  sarenza.com/lifecycle: persistent
+  example.com/lifecycle: persistent
 
 kubeletService:
   enabled: false
