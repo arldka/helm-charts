@@ -1,6 +1,6 @@
 # Prometheus Operator Chart
 
-![Version: 12.0.0](https://img.shields.io/badge/Version-12.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.72.0](https://img.shields.io/badge/AppVersion-0.72.0-informational?style=flat-square)
+![Version: 13.0.0](https://img.shields.io/badge/Version-13.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.73.0](https://img.shields.io/badge/AppVersion-0.73.0-informational?style=flat-square)
 
 ## Description
 
@@ -70,6 +70,26 @@ _See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command documen
 :warning: The ScrapeConfigs objects are supported from version 8.0.0 onwards.
 
 A major chart version change (like v1.2.3 -> v2.0.0) indicates that there is an incompatible breaking change needing manual actions.
+
+### From 12.x to 13.x
+
+This version upgrades Prometheus-Operator to v0.73.0.
+
+Run these commands to update the CRDs before applying the upgrade to deploy the operator.
+For better compatibility and upgrade of the CRD versions, the prometheus-operator-crd-full are used to maintain multiple versions of the CRD to ease migration.
+
+```console
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.73.0/example/prometheus-operator-crd-full/monitoring.coreos.com_alertmanagerconfigs.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.73.0/example/prometheus-operator-crd-full/monitoring.coreos.com_alertmanagers.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.73.0/example/prometheus-operator-crd-full/monitoring.coreos.com_podmonitors.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.73.0/example/prometheus-operator-crd-full/monitoring.coreos.com_probes.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.73.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheuses.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.73.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheusrules.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.73.0/example/prometheus-operator-crd-full/monitoring.coreos.com_servicemonitors.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.73.0/example/prometheus-operator-crd-full/monitoring.coreos.com_thanosrulers.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.73.0/example/prometheus-operator-crd-full/monitoring.coreos.com_prometheusagents.yaml
+kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.73.0/example/prometheus-operator-crd-full/monitoring.coreos.com_scrapeconfigs.yaml
+```
 
 ### From 11.x to 12.x
 
@@ -387,7 +407,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"quay.io/prometheus-operator/prometheus-operator"` |  |
 | image.sha | string | `""` |  |
-| image.tag | string | `"v0.71.2"` |  |
+| image.tag | string | `"v0.72.0"` |  |
 | kubeTargetVersionOverride | string | `""` |  |
 | kubeVersionOverride | string | `""` |  |
 | kubeletService.enabled | bool | `true` |  |
@@ -401,7 +421,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | podLabels | object | `{}` |  |
 | prometheusConfigReloader.image.repository | string | `"quay.io/prometheus-operator/prometheus-config-reloader"` |  |
 | prometheusConfigReloader.image.sha | string | `""` |  |
-| prometheusConfigReloader.image.tag | string | `"v0.71.2"` |  |
+| prometheusConfigReloader.image.tag | string | `"v0.72.0"` |  |
 | prometheusConfigReloader.resources.limits.cpu | string | `"200m"` |  |
 | prometheusConfigReloader.resources.limits.memory | string | `"50Mi"` |  |
 | prometheusConfigReloader.resources.requests.cpu | string | `"200m"` |  |
@@ -428,7 +448,7 @@ Because the operator can only run as a single pod, there is potential for this c
 | serviceAccount.name | string | `""` |  |
 | thanosImage.repository | string | `"quay.io/thanos/thanos"` |  |
 | thanosImage.sha | string | `""` |  |
-| thanosImage.tag | string | `"v0.33.0"` |  |
+| thanosImage.tag | string | `"v0.34.1"` |  |
 | thanosRulerInstanceNamespaces | list | `[]` |  |
 | tls.enabled | bool | `true` |  |
 | tls.internalPort | int | `10250` |  |
